@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <img src="${base}assets/logo.png" alt="Suffah Official Logo" onerror="this.style.display='none'">
       <div class="nav-brand-text">
         <span>Suffah Official</span>
-        <span>Islamic Academy</span>
+        <span>E-Learning Academy</span>
       </div>
     </a>
     <div class="nav-links">
-      <a href="${base}index.html" data-en="Home" data-ur="ہوم">Home</a>
+      <a href="${base}index.html" data-en="Home" data-ur="ہوم"> Home </a>
       <a href="${base}pages/courses.html" data-en="Courses" data-ur="کورسز">Courses</a>
       <a href="${base}pages/seerah.html" data-en="Seerah" data-ur="سیرت">Seerah</a>
       <a href="${base}pages/islamic-studies.html" data-en="Islamic Studies" data-ur="اسلامی تعلیم">Islamic Studies</a>
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="${base}pages/admission.html" class="btn btn-primary nav-cta" style="font-size:0.82rem;padding:9px 20px;" data-en="Enroll Now" data-ur="ابھی داخلہ لیں">Enroll Now</a>
     <div class="hamburger"><span></span><span></span><span></span></div>
   `;
-  document.body.prepend(navbar);
+  noticeBand.insertAdjacentElement("afterend", navbar);
 
   // ── MOBILE NAV ──
   const mobileNav = document.createElement("div");
