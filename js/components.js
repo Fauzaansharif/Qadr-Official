@@ -2,18 +2,18 @@
 // SUFFAH OFFICIAL — Shared Components (navbar + footer)
 // ============================================================
 
-document.addEventListener('DOMContentLoaded', () => {
-  const base = location.pathname.includes('/pages/') ? '../' : '';
+document.addEventListener("DOMContentLoaded", () => {
+  const base = location.pathname.includes("/pages/") ? "../" : "";
 
   // ── NOTICE BAND ──
-  const noticeBand = document.createElement('div');
-  noticeBand.className = 'notice-band';
+  const noticeBand = document.createElement("div");
+  noticeBand.className = "notice-band";
   noticeBand.innerHTML = `📚 New Batch Starting Soon — <a href="${base}pages/admission.html">Apply Now</a> | 🌙 Admissions Open for 2025-26`;
   document.body.prepend(noticeBand);
 
   // ── NAVBAR ──
-  const navbar = document.createElement('nav');
-  navbar.className = 'navbar';
+  const navbar = document.createElement("nav");
+  navbar.className = "navbar";
   navbar.innerHTML = `
     <a href="${base}index.html" class="nav-brand">
       <img src="${base}assets/logo.png" alt="Suffah Official Logo" onerror="this.style.display='none'">
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.prepend(navbar);
 
   // ── MOBILE NAV ──
-  const mobileNav = document.createElement('div');
-  mobileNav.className = 'mobile-nav';
+  const mobileNav = document.createElement("div");
+  mobileNav.className = "mobile-nav";
   mobileNav.innerHTML = `
     <a href="${base}index.html">🏠 <span data-en="Home" data-ur="ہوم">Home</span></a>
     <a href="${base}pages/courses.html">📚 <span data-en="Courses" data-ur="کورسز">Courses</span></a>
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
   navbar.after(mobileNav);
 
   // ── FOOTER ──
-  const footer = document.createElement('footer');
-  footer.className = 'footer';
+  const footer = document.createElement("footer");
+  footer.className = "footer";
   footer.innerHTML = `
     <div class="footer-grid">
       <div class="footer-brand">
@@ -91,14 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:info@suffahofficial.com">📧 info@suffahofficial.com</a></li>
-          <li><a href="tel:+923001234567">📞 +92 300 123 4567</a></li>
-          <li><a href="#">📍 Pakistan (Online)</a></li>
-          <li><a href="#">🕐 7AM–10PM PKT</a></li>
+          <li><a href="mailto:suffahofficial@gmail.com">📧 suffahofficial@gmail.com</a></li>
+          <li><a href="tel:+917666774850">📞 +91 76667 74850</a></li>
+          <li><a href="#">📍 Mumbai India (Online)</a></li>
+          <li><a href="#">🕐 7AM–10PM IST</a></li>
         </ul>
         <div class="social-links" style="margin-top:1.2rem">
-          <a class="social-link" href="#" title="YouTube">▶</a>
-          <a class="social-link" href="#" title="WhatsApp">💬</a>
+          <a class="social-link" href="https://www.youtube.com/@suffahofficial" title="YouTube">▶</a>
+          <a class="social-link" href="" title="WhatsApp">💬</a>
           <a class="social-link" href="#" title="Facebook">f</a>
           <a class="social-link" href="#" title="Instagram">◉</a>
         </div>
@@ -112,11 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(footer);
 
   // ── Active nav link ──
-  const currentPage = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => {
-    const href = a.getAttribute('href') || '';
-    if (href.endsWith(currentPage) || (currentPage === '' && href.includes('index.html'))) {
-      a.classList.add('active');
+  const currentPage = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-links a, .mobile-nav a").forEach((a) => {
+    const href = a.getAttribute("href") || "";
+    if (
+      href.endsWith(currentPage) ||
+      (currentPage === "" && href.includes("index.html"))
+    ) {
+      a.classList.add("active");
     }
   });
 });

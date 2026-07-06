@@ -1,362 +1,797 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Portal — Suffah Official</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/portal.css">
-  <link rel="stylesheet" href="../css/urdu.css">
-  <link rel="icon" href="../assets/logo.png" type="image/png">
-</head>
-<body>
-<script src="../js/components.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal — Suffah Official</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/portal.css" />
+    <link rel="stylesheet" href="../css/urdu.css" />
+    <link rel="icon" href="../assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <script src="../js/components.js"></script>
 
-<!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
      LOGIN SCREEN
 ══════════════════════════════════════ -->
-<div class="portal-login-wrap" id="loginScreen">
-  <div class="portal-login-bg"></div>
-  <div class="portal-login-card">
-    <div class="portal-login-logo">
-      <img src="../assets/logo.png" alt="Suffah Logo" onerror="this.style.display='none'">
-      <span class="arabic-sub">بِسْمِ اللَّهِ</span>
-      <h2>Student Portal</h2>
-      <p>Suffah Official Islamic Academy</p>
+    <div class="portal-login-wrap" id="loginScreen">
+      <div class="portal-login-bg"></div>
+      <div class="portal-login-card">
+        <div class="portal-login-logo">
+          <img
+            src="../assets/logo.png"
+            alt="Suffah Logo"
+            onerror="this.style.display = 'none'"
+          />
+          <span class="arabic-sub">بِسْمِ اللَّهِ</span>
+          <h2>Student Portal</h2>
+          <p>Suffah Official Islamic Academy</p>
+        </div>
+
+        <div class="demo-creds">
+          <strong>🔑 Demo Credentials</strong>
+          <span>Student ID: <b>STU001</b></span>
+          <span>Password: <b>suffah123</b></span>
+        </div>
+
+        <div class="login-error" id="loginError">
+          ❌ Incorrect credentials. Please try again.
+        </div>
+
+        <div class="login-form-group">
+          <label>Student ID</label>
+          <input
+            type="text"
+            id="loginId"
+            placeholder="e.g. STU001"
+            autocomplete="username"
+          />
+        </div>
+        <div class="login-form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="loginPass"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+          />
+        </div>
+
+        <button
+          class="btn btn-primary"
+          style="width: 100%; justify-content: center; margin-top: 0.5rem"
+          onclick="doLogin()"
+        >
+          🔐 Login to Portal
+        </button>
+
+        <p
+          style="
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 1.2rem;
+          "
+        >
+          Not enrolled yet?
+          <a
+            href="admission.html"
+            style="color: var(--emerald); font-weight: 600"
+            >Apply for Admission →</a
+          >
+        </p>
+      </div>
     </div>
 
-    <div class="demo-creds">
-      <strong>🔑 Demo Credentials</strong>
-      <span>Student ID: <b>STU001</b></span>
-      <span>Password: <b>suffah123</b></span>
-    </div>
-
-    <div class="login-error" id="loginError">❌ Incorrect credentials. Please try again.</div>
-
-    <div class="login-form-group">
-      <label>Student ID</label>
-      <input type="text" id="loginId" placeholder="e.g. STU001" autocomplete="username">
-    </div>
-    <div class="login-form-group">
-      <label>Password</label>
-      <input type="password" id="loginPass" placeholder="Enter your password" autocomplete="current-password">
-    </div>
-
-    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem;" onclick="doLogin()">
-      🔐 Login to Portal
-    </button>
-
-    <p style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:1.2rem;">
-      Not enrolled yet? <a href="admission.html" style="color:var(--emerald);font-weight:600;">Apply for Admission →</a>
-    </p>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
      DASHBOARD
 ══════════════════════════════════════ -->
-<div class="portal-dashboard" id="dashboard">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <!-- Header -->
-    <div class="portal-header">
-      <div class="portal-header-left">
-        <h2 data-en="Assalamu Alaykum, Muhammad Ali 👋" data-ur="السلام علیکم، محمد علی 👋">Assalamu Alaykum, Muhammad Ali 👋</h2>
-        <p data-en="Welcome back to your Suffah Student Portal" data-ur="سفہ اسٹوڈنٹ پورٹل میں خوش آمدید">Welcome back to your Suffah Student Portal</p>
-      </div>
-      <div style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
-        <div class="portal-user-badge">
-          <div class="portal-avatar">MA</div>
-          <div class="portal-user-info">
-            <div class="name">Muhammad Ali</div>
-            <div class="roll">Roll No: STU001</div>
+    <div class="portal-dashboard" id="dashboard">
+      <div style="max-width: 1200px; margin: 0 auto">
+        <!-- Header -->
+        <div class="portal-header">
+          <div class="portal-header-left">
+            <h2
+              data-en="Assalamu Alaykum, Muhammad Ali 👋"
+              data-ur="السلام علیکم، محمد علی 👋"
+            >
+              Assalamu Alaykum, Muhammad Ali 👋
+            </h2>
+            <p
+              data-en="Welcome back to your Suffah Student Portal"
+              data-ur="سفہ اسٹوڈنٹ پورٹل میں خوش آمدید"
+            >
+              Welcome back to your Suffah Student Portal
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              gap: 0.8rem;
+              align-items: center;
+              flex-wrap: wrap;
+            "
+          >
+            <div class="portal-user-badge">
+              <div class="portal-avatar">MA</div>
+              <div class="portal-user-info">
+                <div class="name">Muhammad Ali</div>
+                <div class="roll">Roll No: STU001</div>
+              </div>
+            </div>
+            <button class="portal-logout-btn" onclick="doLogout()">
+              🚪 <span data-en="Logout" data-ur="لاگ آوٹ">Logout</span>
+            </button>
           </div>
         </div>
-        <button class="portal-logout-btn" onclick="doLogout()">🚪 <span data-en="Logout" data-ur="لاگ آوٹ">Logout</span></button>
+
+        <!-- Stats -->
+        <div class="portal-stats">
+          <div class="portal-stat-card">
+            <div class="portal-stat-icon ps-green">📅</div>
+            <div class="portal-stat-text">
+              <h3>87%</h3>
+              <p data-en="Attendance Rate" data-ur="حاضری کی شرح">
+                Attendance Rate
+              </p>
+            </div>
+          </div>
+          <div class="portal-stat-card">
+            <div class="portal-stat-icon ps-gold">⭐</div>
+            <div class="portal-stat-text">
+              <h3>A</h3>
+              <p data-en="Overall Grade" data-ur="مجموعی گریڈ">Overall Grade</p>
+            </div>
+          </div>
+          <div class="portal-stat-card">
+            <div class="portal-stat-icon ps-blue">📚</div>
+            <div class="portal-stat-text">
+              <h3>3</h3>
+              <p data-en="Active Courses" data-ur="فعال کورسز">
+                Active Courses
+              </p>
+            </div>
+          </div>
+          <div class="portal-stat-card">
+            <div class="portal-stat-icon ps-purple">🏆</div>
+            <div class="portal-stat-text">
+              <h3>65%</h3>
+              <p data-en="Overall Progress" data-ur="مجموعی پیشرفت">
+                Overall Progress
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="portal-tab-bar">
+          <button class="ptab active" data-panel="overview">
+            📊 <span data-en="Overview" data-ur="جائزہ">Overview</span>
+          </button>
+          <button class="ptab" data-panel="attendance">
+            📅 <span data-en="Attendance" data-ur="حاضری">Attendance</span>
+          </button>
+          <button class="ptab" data-panel="marks">
+            📝
+            <span data-en="Marks & Results" data-ur="نمبر اور نتائج"
+              >Marks & Results</span
+            >
+          </button>
+          <button class="ptab" data-panel="progress">
+            📈 <span data-en="Progress" data-ur="پیشرفت">Progress</span>
+          </button>
+          <button class="ptab" data-panel="announcements">
+            📢
+            <span data-en="Announcements" data-ur="اعلانات">Announcements</span>
+          </button>
+        </div>
+
+        <!-- ── OVERVIEW PANEL ── -->
+        <div class="portal-panel active" id="panel-overview">
+          <div
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem"
+          >
+            <!-- Quick attendance summary -->
+            <div
+              style="
+                background: var(--white);
+                border-radius: var(--radius-md);
+                padding: 1.5rem;
+                box-shadow: var(--shadow-sm);
+                border: 1px solid var(--cream-dark);
+              "
+            >
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  color: var(--emerald-dark);
+                  margin-bottom: 1rem;
+                "
+                data-en="This Month's Attendance"
+                data-ur="اس مہینے کی حاضری"
+              >
+                This Month's Attendance
+              </h4>
+              <div class="att-summary">
+                <div class="att-sum-card att-sum-present">
+                  <h4>18</h4>
+                  <p data-en="Present" data-ur="حاضر">Present</p>
+                </div>
+                <div class="att-sum-card att-sum-absent">
+                  <h4>3</h4>
+                  <p data-en="Absent" data-ur="غیر حاضر">Absent</p>
+                </div>
+                <div class="att-sum-card att-sum-pct">
+                  <h4>87%</h4>
+                  <p data-en="Rate" data-ur="شرح">Rate</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent marks -->
+            <div
+              style="
+                background: var(--white);
+                border-radius: var(--radius-md);
+                padding: 1.5rem;
+                box-shadow: var(--shadow-sm);
+                border: 1px solid var(--cream-dark);
+              "
+            >
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  color: var(--emerald-dark);
+                  margin-bottom: 1rem;
+                "
+                data-en="Recent Test Scores"
+                data-ur="حالیہ ٹیسٹ اسکور"
+              >
+                Recent Test Scores
+              </h4>
+              <div style="display: flex; flex-direction: column; gap: 0.8rem">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.85rem;
+                  "
+                >
+                  <span style="color: var(--text-mid)">Tajweed Rules Quiz</span>
+                  <span style="font-weight: 700; color: var(--emerald)"
+                    >92/100</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.85rem;
+                  "
+                >
+                  <span style="color: var(--text-mid)">Hadith Mid-Term</span>
+                  <span style="font-weight: 700; color: var(--emerald)"
+                    >85/100</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.85rem;
+                  "
+                >
+                  <span style="color: var(--text-mid)">Seerah Assignment</span>
+                  <span style="font-weight: 700; color: var(--gold)"
+                    >78/100</span
+                  >
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.85rem;
+                  "
+                >
+                  <span style="color: var(--text-mid)"
+                    >Islamic Studies Test</span
+                  >
+                  <span style="font-weight: 700; color: var(--emerald)"
+                    >95/100</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Upcoming classes -->
+            <div
+              style="
+                background: var(--white);
+                border-radius: var(--radius-md);
+                padding: 1.5rem;
+                box-shadow: var(--shadow-sm);
+                border: 1px solid var(--cream-dark);
+              "
+            >
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  color: var(--emerald-dark);
+                  margin-bottom: 1rem;
+                "
+                data-en="Upcoming Classes"
+                data-ur="آنے والی کلاسیں"
+              >
+                Upcoming Classes
+              </h4>
+              <div style="display: flex; flex-direction: column; gap: 0.8rem">
+                <div style="display: flex; gap: 1rem; align-items: center">
+                  <div
+                    style="
+                      background: var(--emerald-pale);
+                      color: var(--emerald);
+                      border-radius: 8px;
+                      padding: 6px 10px;
+                      font-size: 0.72rem;
+                      font-weight: 700;
+                      text-align: center;
+                      min-width: 54px;
+                    "
+                  >
+                    MON<br />9:00
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 0.88rem;
+                        font-weight: 600;
+                        color: var(--text-dark);
+                      "
+                    >
+                      Tajweed Class
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted)">
+                      Hafiz Abdul Rahman
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: center">
+                  <div
+                    style="
+                      background: #fef3dc;
+                      color: var(--gold);
+                      border-radius: 8px;
+                      padding: 6px 10px;
+                      font-size: 0.72rem;
+                      font-weight: 700;
+                      text-align: center;
+                      min-width: 54px;
+                    "
+                  >
+                    TUE<br />6:00
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 0.88rem;
+                        font-weight: 600;
+                        color: var(--text-dark);
+                      "
+                    >
+                      Hadith Studies
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted)">
+                      Sheikh Idrees Khan
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: center">
+                  <div
+                    style="
+                      background: #e3f2fd;
+                      color: #1565c0;
+                      border-radius: 8px;
+                      padding: 6px 10px;
+                      font-size: 0.72rem;
+                      font-weight: 700;
+                      text-align: center;
+                      min-width: 54px;
+                    "
+                  >
+                    THU<br />7:00
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 0.88rem;
+                        font-weight: 600;
+                        color: var(--text-dark);
+                      "
+                    >
+                      Seerah
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted)">
+                      Ustadha Fatima Noor
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Latest announcement -->
+            <div
+              style="
+                background: var(--white);
+                border-radius: var(--radius-md);
+                padding: 1.5rem;
+                box-shadow: var(--shadow-sm);
+                border: 1px solid var(--cream-dark);
+              "
+            >
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  color: var(--emerald-dark);
+                  margin-bottom: 1rem;
+                "
+                data-en="Latest Announcement"
+                data-ur="تازہ ترین اعلان"
+              >
+                Latest Announcement
+              </h4>
+              <div
+                style="
+                  background: var(--emerald-pale);
+                  border-radius: 10px;
+                  padding: 1rem;
+                  margin-bottom: 0.8rem;
+                "
+              >
+                <div
+                  style="
+                    font-size: 0.82rem;
+                    font-weight: 600;
+                    color: var(--emerald-dark);
+                    margin-bottom: 4px;
+                  "
+                >
+                  📚 Ramadan Special Classes
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-mid)">
+                  Extra Quran revision sessions will be held daily during
+                  Ramadan at Fajr time. All students are encouraged to attend.
+                </p>
+                <div
+                  style="
+                    font-size: 0.72rem;
+                    color: var(--text-muted);
+                    margin-top: 6px;
+                  "
+                >
+                  Posted: June 28, 2025
+                </div>
+              </div>
+              <div
+                style="
+                  background: var(--cream);
+                  border-radius: 10px;
+                  padding: 1rem;
+                "
+              >
+                <div
+                  style="
+                    font-size: 0.82rem;
+                    font-weight: 600;
+                    color: var(--gold);
+                    margin-bottom: 4px;
+                  "
+                >
+                  📝 Monthly Test Reminder
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-mid)">
+                  Monthly evaluation tests for all courses are scheduled for the
+                  first week of July. Please prepare accordingly.
+                </p>
+                <div
+                  style="
+                    font-size: 0.72rem;
+                    color: var(--text-muted);
+                    margin-top: 6px;
+                  "
+                >
+                  Posted: June 25, 2025
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ATTENDANCE PANEL ── -->
+        <div class="portal-panel" id="panel-attendance">
+          <div class="attendance-wrap">
+            <div class="att-month-nav">
+              <button class="att-nav-btn" id="prevMonth">&#8249;</button>
+              <h3 id="calMonthLabel">July 2025</h3>
+              <button class="att-nav-btn" id="nextMonth">&#8250;</button>
+            </div>
+
+            <div class="att-weekdays">
+              <div class="att-weekday">Sun</div>
+              <div class="att-weekday">Mon</div>
+              <div class="att-weekday">Tue</div>
+              <div class="att-weekday">Wed</div>
+              <div class="att-weekday">Thu</div>
+              <div class="att-weekday">Fri</div>
+              <div class="att-weekday">Sat</div>
+            </div>
+
+            <div class="att-calendar-grid" id="calGrid"></div>
+
+            <div class="att-legend">
+              <div class="att-legend-item">
+                <div
+                  class="att-legend-dot"
+                  style="background: var(--emerald-pale); border-radius: 3px"
+                ></div>
+                <span data-en="Present" data-ur="حاضر">Present</span>
+              </div>
+              <div class="att-legend-item">
+                <div
+                  class="att-legend-dot"
+                  style="background: #fde8e8; border-radius: 3px"
+                ></div>
+                <span data-en="Absent" data-ur="غیر حاضر">Absent</span>
+              </div>
+              <div class="att-legend-item">
+                <div
+                  class="att-legend-dot"
+                  style="background: var(--emerald); border-radius: 3px"
+                ></div>
+                <span data-en="Today" data-ur="آج">Today</span>
+              </div>
+              <div class="att-legend-item">
+                <div
+                  class="att-legend-dot"
+                  style="background: var(--cream-dark); border-radius: 3px"
+                ></div>
+                <span data-en="Holiday" data-ur="چھٹی">Holiday</span>
+              </div>
+            </div>
+
+            <div class="att-summary" style="margin-top: 1.5rem">
+              <div class="att-sum-card att-sum-present">
+                <h4 id="attPresent">18</h4>
+                <p data-en="Days Present" data-ur="حاضر دن">Days Present</p>
+              </div>
+              <div class="att-sum-card att-sum-absent">
+                <h4 id="attAbsent">3</h4>
+                <p data-en="Days Absent" data-ur="غیر حاضر دن">Days Absent</p>
+              </div>
+              <div class="att-sum-card att-sum-pct">
+                <h4 id="attPct">87%</h4>
+                <p data-en="Attendance %" data-ur="حاضری %">Attendance %</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MARKS PANEL ── -->
+        <div class="portal-panel" id="panel-marks">
+          <div class="marks-wrap">
+            <div class="marks-table-scroll">
+              <table class="marks-table">
+                <thead>
+                  <tr>
+                    <th data-en="Course" data-ur="کورس">Course</th>
+                    <th data-en="Test / Exam" data-ur="ٹیسٹ / امتحان">
+                      Test / Exam
+                    </th>
+                    <th data-en="Score" data-ur="اسکور">Score</th>
+                    <th data-en="Out of" data-ur="کل">Out of</th>
+                    <th data-en="Progress" data-ur="پیشرفت">Progress</th>
+                    <th data-en="Grade" data-ur="گریڈ">Grade</th>
+                  </tr>
+                </thead>
+                <tbody id="marksBody">
+                  <!-- Injected by JS -->
+                </tbody>
+              </table>
+            </div>
+            <div class="marks-footer">
+              <span
+                data-en="Showing results for: 2025 Academic Year"
+                data-ur="نتائج: 2025 تعلیمی سال"
+                >Showing results for: 2025 Academic Year</span
+              >
+              <div class="marks-gpa">
+                <span data-en="Overall GPA:" data-ur="مجموعی GPA:"
+                  >Overall GPA:</span
+                >
+                <span class="marks-gpa-badge">A (88%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PROGRESS PANEL ── -->
+        <div class="portal-panel" id="panel-progress">
+          <!-- Overall ring -->
+          <div class="overall-progress-card">
+            <div class="progress-ring-wrap">
+              <svg
+                class="progress-ring-svg"
+                width="110"
+                height="110"
+                viewBox="0 0 110 110"
+              >
+                <circle class="ring-track" cx="55" cy="55" r="45" />
+                <circle
+                  class="ring-fill"
+                  id="ringFill"
+                  cx="55"
+                  cy="55"
+                  r="45"
+                />
+              </svg>
+              <div class="ring-label">
+                <span class="ring-pct" id="ringPct">65%</span>
+                <span class="ring-sub" data-en="Complete" data-ur="مکمل"
+                  >Complete</span
+                >
+              </div>
+            </div>
+            <div class="overall-progress-text">
+              <h3
+                data-en="Overall Course Progress"
+                data-ur="مجموعی کورس پیشرفت"
+              >
+                Overall Course Progress
+              </h3>
+              <p
+                data-en="You are doing well, Alhamdulillah! Keep it up and maintain consistency in your studies."
+                data-ur="ماشاءاللہ! آپ اچھا کر رہے ہیں۔ اپنی پڑھائی میں ہمیشگی برقرار رکھیں۔"
+              >
+                You are doing well, Alhamdulillah! Keep it up and maintain
+                consistency in your studies.
+              </p>
+              <div class="op-stats">
+                <div class="op-stat">
+                  <h4>3</h4>
+                  <p data-en="Active Courses" data-ur="فعال کورسز">
+                    Active Courses
+                  </p>
+                </div>
+                <div class="op-stat">
+                  <h4>12</h4>
+                  <p data-en="Lessons Done" data-ur="مکمل اسباق">
+                    Lessons Done
+                  </p>
+                </div>
+                <div class="op-stat">
+                  <h4>5</h4>
+                  <p data-en="Remaining" data-ur="باقی">Remaining</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Per-course progress cards -->
+          <div class="progress-grid" id="progressGrid">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- ── ANNOUNCEMENTS PANEL ── -->
+        <div class="portal-panel" id="panel-announcements">
+          <div class="announcement-list">
+            <div class="announcement-item">
+              <div class="ann-icon">📚</div>
+              <div class="ann-body">
+                <h4
+                  data-en="Ramadan Special Classes — Extra Quran Revision"
+                  data-ur="رمضان اسپیشل کلاسیں — اضافی قرآن مراجعت"
+                >
+                  Ramadan Special Classes — Extra Quran Revision
+                </h4>
+                <p
+                  data-en="Additional Quran revision sessions will be held every day at Fajr time during the blessed month of Ramadan. All students are strongly encouraged to participate."
+                  data-ur="رمضان المبارک میں روزانہ فجر کے وقت اضافی قرآن مراجعت کلاسیں ہوں گی۔ تمام طلباء کی شرکت ضروری ہے۔"
+                >
+                  Additional Quran revision sessions will be held every day at
+                  Fajr time during the blessed month of Ramadan.
+                </p>
+                <div class="ann-date">📅 June 28, 2025</div>
+              </div>
+            </div>
+            <div class="announcement-item gold-border">
+              <div class="ann-icon" style="background: #fef3dc">📝</div>
+              <div class="ann-body">
+                <h4
+                  data-en="Monthly Evaluation Tests — July 2025"
+                  data-ur="ماہانہ جانچ ٹیسٹ — جولائی 2025"
+                >
+                  Monthly Evaluation Tests — July 2025
+                </h4>
+                <p
+                  data-en="Monthly tests for Tajweed, Hadith, and Seerah are scheduled in the first week of July. Students must complete their revision beforehand."
+                  data-ur="تجوید، حدیث اور سیرت کے ماہانہ ٹیسٹ جولائی کے پہلے ہفتے میں ہوں گے۔ طلباء پہلے سے تیاری کریں۔"
+                >
+                  Monthly tests for Tajweed, Hadith, and Seerah are scheduled in
+                  the first week of July.
+                </p>
+                <div class="ann-date">📅 June 25, 2025</div>
+              </div>
+            </div>
+            <div class="announcement-item">
+              <div class="ann-icon">🎓</div>
+              <div class="ann-body">
+                <h4
+                  data-en="New Batch: Hifz-ul-Quran Starting August 2025"
+                  data-ur="نیا بیچ: حفظ القرآن اگست 2025 سے شروع"
+                >
+                  New Batch: Hifz-ul-Quran Starting August 2025
+                </h4>
+                <p
+                  data-en="A new Hifz batch is being formed for male and female students. Limited seats available. Apply now to secure your spot."
+                  data-ur="مرد و خواتین طلباء کے لیے نیا حفظ بیچ بنایا جا رہا ہے۔ محدود نشستیں دستیاب ہیں۔ ابھی درخواست دیں۔"
+                >
+                  A new Hifz batch is being formed. Limited seats available.
+                  Apply now to secure your spot.
+                </p>
+                <div class="ann-date">📅 June 20, 2025</div>
+              </div>
+            </div>
+            <div class="announcement-item red-border">
+              <div class="ann-icon" style="background: #fde8e8">⚠️</div>
+              <div class="ann-body">
+                <h4
+                  data-en="Class Rescheduled — July 4th (Thursday)"
+                  data-ur="کلاس کا وقت تبدیل — 4 جولائی (جمعرات)"
+                >
+                  Class Rescheduled — July 4th (Thursday)
+                </h4>
+                <p
+                  data-en="The Seerah class on July 4th has been rescheduled to Friday July 5th at 7:00 PM due to teacher unavailability. Apologies for any inconvenience."
+                  data-ur="4 جولائی کی سیرت کلاس استاد کی عدم دستیابی کی وجہ سے 5 جولائی جمعہ کو شام 7 بجے منتقل کی گئی ہے۔"
+                >
+                  The Seerah class on July 4th has been rescheduled to Friday
+                  July 5th at 7:00 PM.
+                </p>
+                <div class="ann-date">📅 July 2, 2025</div>
+              </div>
+            </div>
+            <div class="announcement-item">
+              <div class="ann-icon">🏆</div>
+              <div class="ann-body">
+                <h4
+                  data-en="Hifz Completion Ceremony — Congratulations!"
+                  data-ur="حفظ کی تقریب — مبارکباد!"
+                >
+                  Hifz Completion Ceremony — Congratulations!
+                </h4>
+                <p
+                  data-en="We congratulate 5 of our students who completed their Hifz this month. May Allah accept their efforts and grant them the blessings of the Quran. Ameen."
+                  data-ur="ہم اپنے 5 طلباء کو مبارکباد دیتے ہیں جنہوں نے اس مہینے حفظ مکمل کیا۔ اللہ قبول فرمائے۔ آمین"
+                >
+                  We congratulate 5 students who completed their Hifz this
+                  month. May Allah accept their efforts. Ameen.
+                </p>
+                <div class="ann-date">📅 June 15, 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Stats -->
-    <div class="portal-stats">
-      <div class="portal-stat-card">
-        <div class="portal-stat-icon ps-green">📅</div>
-        <div class="portal-stat-text">
-          <h3>87%</h3>
-          <p data-en="Attendance Rate" data-ur="حاضری کی شرح">Attendance Rate</p>
-        </div>
-      </div>
-      <div class="portal-stat-card">
-        <div class="portal-stat-icon ps-gold">⭐</div>
-        <div class="portal-stat-text">
-          <h3>A</h3>
-          <p data-en="Overall Grade" data-ur="مجموعی گریڈ">Overall Grade</p>
-        </div>
-      </div>
-      <div class="portal-stat-card">
-        <div class="portal-stat-icon ps-blue">📚</div>
-        <div class="portal-stat-text">
-          <h3>3</h3>
-          <p data-en="Active Courses" data-ur="فعال کورسز">Active Courses</p>
-        </div>
-      </div>
-      <div class="portal-stat-card">
-        <div class="portal-stat-icon ps-purple">🏆</div>
-        <div class="portal-stat-text">
-          <h3>65%</h3>
-          <p data-en="Overall Progress" data-ur="مجموعی پیشرفت">Overall Progress</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab Bar -->
-    <div class="portal-tab-bar">
-      <button class="ptab active" data-panel="overview">📊 <span data-en="Overview" data-ur="جائزہ">Overview</span></button>
-      <button class="ptab" data-panel="attendance">📅 <span data-en="Attendance" data-ur="حاضری">Attendance</span></button>
-      <button class="ptab" data-panel="marks">📝 <span data-en="Marks & Results" data-ur="نمبر اور نتائج">Marks & Results</span></button>
-      <button class="ptab" data-panel="progress">📈 <span data-en="Progress" data-ur="پیشرفت">Progress</span></button>
-      <button class="ptab" data-panel="announcements">📢 <span data-en="Announcements" data-ur="اعلانات">Announcements</span></button>
-    </div>
-
-    <!-- ── OVERVIEW PANEL ── -->
-    <div class="portal-panel active" id="panel-overview">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-
-        <!-- Quick attendance summary -->
-        <div style="background:var(--white);border-radius:var(--radius-md);padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--cream-dark);">
-          <h4 style="font-size:0.95rem;color:var(--emerald-dark);margin-bottom:1rem;" data-en="This Month's Attendance" data-ur="اس مہینے کی حاضری">This Month's Attendance</h4>
-          <div class="att-summary">
-            <div class="att-sum-card att-sum-present">
-              <h4>18</h4>
-              <p data-en="Present" data-ur="حاضر">Present</p>
-            </div>
-            <div class="att-sum-card att-sum-absent">
-              <h4>3</h4>
-              <p data-en="Absent" data-ur="غیر حاضر">Absent</p>
-            </div>
-            <div class="att-sum-card att-sum-pct">
-              <h4>87%</h4>
-              <p data-en="Rate" data-ur="شرح">Rate</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recent marks -->
-        <div style="background:var(--white);border-radius:var(--radius-md);padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--cream-dark);">
-          <h4 style="font-size:0.95rem;color:var(--emerald-dark);margin-bottom:1rem;" data-en="Recent Test Scores" data-ur="حالیہ ٹیسٹ اسکور">Recent Test Scores</h4>
-          <div style="display:flex;flex-direction:column;gap:0.8rem;">
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;">
-              <span style="color:var(--text-mid);">Tajweed Rules Quiz</span>
-              <span style="font-weight:700;color:var(--emerald);">92/100</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;">
-              <span style="color:var(--text-mid);">Hadith Mid-Term</span>
-              <span style="font-weight:700;color:var(--emerald);">85/100</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;">
-              <span style="color:var(--text-mid);">Seerah Assignment</span>
-              <span style="font-weight:700;color:var(--gold);">78/100</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;">
-              <span style="color:var(--text-mid);">Islamic Studies Test</span>
-              <span style="font-weight:700;color:var(--emerald);">95/100</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Upcoming classes -->
-        <div style="background:var(--white);border-radius:var(--radius-md);padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--cream-dark);">
-          <h4 style="font-size:0.95rem;color:var(--emerald-dark);margin-bottom:1rem;" data-en="Upcoming Classes" data-ur="آنے والی کلاسیں">Upcoming Classes</h4>
-          <div style="display:flex;flex-direction:column;gap:0.8rem;">
-            <div style="display:flex;gap:1rem;align-items:center;">
-              <div style="background:var(--emerald-pale);color:var(--emerald);border-radius:8px;padding:6px 10px;font-size:0.72rem;font-weight:700;text-align:center;min-width:54px;">MON<br>9:00</div>
-              <div><div style="font-size:0.88rem;font-weight:600;color:var(--text-dark);">Tajweed Class</div><div style="font-size:0.75rem;color:var(--text-muted);">Hafiz Abdul Rahman</div></div>
-            </div>
-            <div style="display:flex;gap:1rem;align-items:center;">
-              <div style="background:#FEF3DC;color:var(--gold);border-radius:8px;padding:6px 10px;font-size:0.72rem;font-weight:700;text-align:center;min-width:54px;">TUE<br>6:00</div>
-              <div><div style="font-size:0.88rem;font-weight:600;color:var(--text-dark);">Hadith Studies</div><div style="font-size:0.75rem;color:var(--text-muted);">Sheikh Idrees Khan</div></div>
-            </div>
-            <div style="display:flex;gap:1rem;align-items:center;">
-              <div style="background:#e3f2fd;color:#1565c0;border-radius:8px;padding:6px 10px;font-size:0.72rem;font-weight:700;text-align:center;min-width:54px;">THU<br>7:00</div>
-              <div><div style="font-size:0.88rem;font-weight:600;color:var(--text-dark);">Seerah</div><div style="font-size:0.75rem;color:var(--text-muted);">Ustadha Fatima Noor</div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Latest announcement -->
-        <div style="background:var(--white);border-radius:var(--radius-md);padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid var(--cream-dark);">
-          <h4 style="font-size:0.95rem;color:var(--emerald-dark);margin-bottom:1rem;" data-en="Latest Announcement" data-ur="تازہ ترین اعلان">Latest Announcement</h4>
-          <div style="background:var(--emerald-pale);border-radius:10px;padding:1rem;margin-bottom:0.8rem;">
-            <div style="font-size:0.82rem;font-weight:600;color:var(--emerald-dark);margin-bottom:4px;">📚 Ramadan Special Classes</div>
-            <p style="font-size:0.8rem;color:var(--text-mid);">Extra Quran revision sessions will be held daily during Ramadan at Fajr time. All students are encouraged to attend.</p>
-            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:6px;">Posted: June 28, 2025</div>
-          </div>
-          <div style="background:var(--cream);border-radius:10px;padding:1rem;">
-            <div style="font-size:0.82rem;font-weight:600;color:var(--gold);margin-bottom:4px;">📝 Monthly Test Reminder</div>
-            <p style="font-size:0.8rem;color:var(--text-mid);">Monthly evaluation tests for all courses are scheduled for the first week of July. Please prepare accordingly.</p>
-            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:6px;">Posted: June 25, 2025</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── ATTENDANCE PANEL ── -->
-    <div class="portal-panel" id="panel-attendance">
-      <div class="attendance-wrap">
-        <div class="att-month-nav">
-          <button class="att-nav-btn" id="prevMonth">&#8249;</button>
-          <h3 id="calMonthLabel">July 2025</h3>
-          <button class="att-nav-btn" id="nextMonth">&#8250;</button>
-        </div>
-
-        <div class="att-weekdays">
-          <div class="att-weekday">Sun</div>
-          <div class="att-weekday">Mon</div>
-          <div class="att-weekday">Tue</div>
-          <div class="att-weekday">Wed</div>
-          <div class="att-weekday">Thu</div>
-          <div class="att-weekday">Fri</div>
-          <div class="att-weekday">Sat</div>
-        </div>
-
-        <div class="att-calendar-grid" id="calGrid"></div>
-
-        <div class="att-legend">
-          <div class="att-legend-item"><div class="att-legend-dot" style="background:var(--emerald-pale);border-radius:3px;"></div><span data-en="Present" data-ur="حاضر">Present</span></div>
-          <div class="att-legend-item"><div class="att-legend-dot" style="background:#fde8e8;border-radius:3px;"></div><span data-en="Absent" data-ur="غیر حاضر">Absent</span></div>
-          <div class="att-legend-item"><div class="att-legend-dot" style="background:var(--emerald);border-radius:3px;"></div><span data-en="Today" data-ur="آج">Today</span></div>
-          <div class="att-legend-item"><div class="att-legend-dot" style="background:var(--cream-dark);border-radius:3px;"></div><span data-en="Holiday" data-ur="چھٹی">Holiday</span></div>
-        </div>
-
-        <div class="att-summary" style="margin-top:1.5rem;">
-          <div class="att-sum-card att-sum-present">
-            <h4 id="attPresent">18</h4>
-            <p data-en="Days Present" data-ur="حاضر دن">Days Present</p>
-          </div>
-          <div class="att-sum-card att-sum-absent">
-            <h4 id="attAbsent">3</h4>
-            <p data-en="Days Absent" data-ur="غیر حاضر دن">Days Absent</p>
-          </div>
-          <div class="att-sum-card att-sum-pct">
-            <h4 id="attPct">87%</h4>
-            <p data-en="Attendance %" data-ur="حاضری %">Attendance %</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── MARKS PANEL ── -->
-    <div class="portal-panel" id="panel-marks">
-      <div class="marks-wrap">
-        <div class="marks-table-scroll">
-          <table class="marks-table">
-            <thead>
-              <tr>
-                <th data-en="Course" data-ur="کورس">Course</th>
-                <th data-en="Test / Exam" data-ur="ٹیسٹ / امتحان">Test / Exam</th>
-                <th data-en="Score" data-ur="اسکور">Score</th>
-                <th data-en="Out of" data-ur="کل">Out of</th>
-                <th data-en="Progress" data-ur="پیشرفت">Progress</th>
-                <th data-en="Grade" data-ur="گریڈ">Grade</th>
-              </tr>
-            </thead>
-            <tbody id="marksBody">
-              <!-- Injected by JS -->
-            </tbody>
-          </table>
-        </div>
-        <div class="marks-footer">
-          <span data-en="Showing results for: 2025 Academic Year" data-ur="نتائج: 2025 تعلیمی سال">Showing results for: 2025 Academic Year</span>
-          <div class="marks-gpa">
-            <span data-en="Overall GPA:" data-ur="مجموعی GPA:">Overall GPA:</span>
-            <span class="marks-gpa-badge">A (88%)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── PROGRESS PANEL ── -->
-    <div class="portal-panel" id="panel-progress">
-      <!-- Overall ring -->
-      <div class="overall-progress-card">
-        <div class="progress-ring-wrap">
-          <svg class="progress-ring-svg" width="110" height="110" viewBox="0 0 110 110">
-            <circle class="ring-track" cx="55" cy="55" r="45"/>
-            <circle class="ring-fill" id="ringFill" cx="55" cy="55" r="45"/>
-          </svg>
-          <div class="ring-label">
-            <span class="ring-pct" id="ringPct">65%</span>
-            <span class="ring-sub" data-en="Complete" data-ur="مکمل">Complete</span>
-          </div>
-        </div>
-        <div class="overall-progress-text">
-          <h3 data-en="Overall Course Progress" data-ur="مجموعی کورس پیشرفت">Overall Course Progress</h3>
-          <p data-en="You are doing well, Alhamdulillah! Keep it up and maintain consistency in your studies." data-ur="ماشاءاللہ! آپ اچھا کر رہے ہیں۔ اپنی پڑھائی میں ہمیشگی برقرار رکھیں۔">You are doing well, Alhamdulillah! Keep it up and maintain consistency in your studies.</p>
-          <div class="op-stats">
-            <div class="op-stat"><h4>3</h4><p data-en="Active Courses" data-ur="فعال کورسز">Active Courses</p></div>
-            <div class="op-stat"><h4>12</h4><p data-en="Lessons Done" data-ur="مکمل اسباق">Lessons Done</p></div>
-            <div class="op-stat"><h4>5</h4><p data-en="Remaining" data-ur="باقی">Remaining</p></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Per-course progress cards -->
-      <div class="progress-grid" id="progressGrid">
-        <!-- Injected by JS -->
-      </div>
-    </div>
-
-    <!-- ── ANNOUNCEMENTS PANEL ── -->
-    <div class="portal-panel" id="panel-announcements">
-      <div class="announcement-list">
-        <div class="announcement-item">
-          <div class="ann-icon">📚</div>
-          <div class="ann-body">
-            <h4 data-en="Ramadan Special Classes — Extra Quran Revision" data-ur="رمضان اسپیشل کلاسیں — اضافی قرآن مراجعت">Ramadan Special Classes — Extra Quran Revision</h4>
-            <p data-en="Additional Quran revision sessions will be held every day at Fajr time during the blessed month of Ramadan. All students are strongly encouraged to participate." data-ur="رمضان المبارک میں روزانہ فجر کے وقت اضافی قرآن مراجعت کلاسیں ہوں گی۔ تمام طلباء کی شرکت ضروری ہے۔">Additional Quran revision sessions will be held every day at Fajr time during the blessed month of Ramadan.</p>
-            <div class="ann-date">📅 June 28, 2025</div>
-          </div>
-        </div>
-        <div class="announcement-item gold-border">
-          <div class="ann-icon" style="background:#FEF3DC;">📝</div>
-          <div class="ann-body">
-            <h4 data-en="Monthly Evaluation Tests — July 2025" data-ur="ماہانہ جانچ ٹیسٹ — جولائی 2025">Monthly Evaluation Tests — July 2025</h4>
-            <p data-en="Monthly tests for Tajweed, Hadith, and Seerah are scheduled in the first week of July. Students must complete their revision beforehand." data-ur="تجوید، حدیث اور سیرت کے ماہانہ ٹیسٹ جولائی کے پہلے ہفتے میں ہوں گے۔ طلباء پہلے سے تیاری کریں۔">Monthly tests for Tajweed, Hadith, and Seerah are scheduled in the first week of July.</p>
-            <div class="ann-date">📅 June 25, 2025</div>
-          </div>
-        </div>
-        <div class="announcement-item">
-          <div class="ann-icon">🎓</div>
-          <div class="ann-body">
-            <h4 data-en="New Batch: Hifz-ul-Quran Starting August 2025" data-ur="نیا بیچ: حفظ القرآن اگست 2025 سے شروع">New Batch: Hifz-ul-Quran Starting August 2025</h4>
-            <p data-en="A new Hifz batch is being formed for male and female students. Limited seats available. Apply now to secure your spot." data-ur="مرد و خواتین طلباء کے لیے نیا حفظ بیچ بنایا جا رہا ہے۔ محدود نشستیں دستیاب ہیں۔ ابھی درخواست دیں۔">A new Hifz batch is being formed. Limited seats available. Apply now to secure your spot.</p>
-            <div class="ann-date">📅 June 20, 2025</div>
-          </div>
-        </div>
-        <div class="announcement-item red-border">
-          <div class="ann-icon" style="background:#fde8e8;">⚠️</div>
-          <div class="ann-body">
-            <h4 data-en="Class Rescheduled — July 4th (Thursday)" data-ur="کلاس کا وقت تبدیل — 4 جولائی (جمعرات)">Class Rescheduled — July 4th (Thursday)</h4>
-            <p data-en="The Seerah class on July 4th has been rescheduled to Friday July 5th at 7:00 PM due to teacher unavailability. Apologies for any inconvenience." data-ur="4 جولائی کی سیرت کلاس استاد کی عدم دستیابی کی وجہ سے 5 جولائی جمعہ کو شام 7 بجے منتقل کی گئی ہے۔">The Seerah class on July 4th has been rescheduled to Friday July 5th at 7:00 PM.</p>
-            <div class="ann-date">📅 July 2, 2025</div>
-          </div>
-        </div>
-        <div class="announcement-item">
-          <div class="ann-icon">🏆</div>
-          <div class="ann-body">
-            <h4 data-en="Hifz Completion Ceremony — Congratulations!" data-ur="حفظ کی تقریب — مبارکباد!">Hifz Completion Ceremony — Congratulations!</h4>
-            <p data-en="We congratulate 5 of our students who completed their Hifz this month. May Allah accept their efforts and grant them the blessings of the Quran. Ameen." data-ur="ہم اپنے 5 طلباء کو مبارکباد دیتے ہیں جنہوں نے اس مہینے حفظ مکمل کیا۔ اللہ قبول فرمائے۔ آمین">We congratulate 5 students who completed their Hifz this month. May Allah accept their efforts. Ameen.</p>
-            <div class="ann-date">📅 June 15, 2025</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script src="../js/portal.js"></script>
-<script src="../js/urdu.js"></script>
-<script src="../js/whatsapp.js"></script>
-<script src="../js/main.js"></script>
-</body>
+    <script src="../js/portal.js"></script>
+    <script src="../js/urdu.js"></script>
+    <script src="../js/whatsapp.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

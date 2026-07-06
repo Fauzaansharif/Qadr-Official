@@ -1,316 +1,730 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Courses — Suffah Official Islamic Academy</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/urdu.css">
-  <link rel="icon" href="../assets/logo.png" type="image/png">
-  <style>
-    .courses-search-bar {
-      display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
-      margin-bottom: 2rem; background: var(--white);
-      border-radius: var(--radius-md); padding: 1.2rem 1.5rem;
-      box-shadow: var(--shadow-sm); border: 1px solid var(--cream-dark);
-    }
-    .courses-search-input {
-      flex: 1; min-width: 200px; padding: 10px 16px 10px 40px;
-      border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-      font-family: var(--font-body); font-size: 0.9rem; color: var(--text-dark);
-      background: var(--cream); outline: none; transition: border-color 0.2s;
-    }
-    .courses-search-input:focus { border-color: var(--emerald); background: var(--white); }
-    .search-wrap { position: relative; flex: 1; min-width: 200px; }
-    .search-icon {
-      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-      color: var(--text-muted); font-size: 0.9rem; pointer-events: none;
-    }
-    .filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .filter-btn {
-      padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
-      cursor: pointer; border: 2px solid var(--emerald-pale); color: var(--text-muted);
-      background: var(--white); transition: all 0.2s;
-    }
-    .filter-btn:hover, .filter-btn.active { background: var(--emerald); border-color: var(--emerald); color: var(--white); }
-    .no-results { text-align: center; padding: 3rem; color: var(--text-muted); display: none; }
-    .course-card-full {
-      background: var(--white); border-radius: var(--radius-md); overflow: hidden;
-      box-shadow: var(--shadow-sm); border: 1px solid var(--cream-dark);
-      transition: all 0.3s; display: flex; flex-direction: column;
-    }
-    .course-card-full:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .course-card-thumb {
-      height: 160px; display: flex; align-items: center;
-      justify-content: center; font-size: 3.5rem; position: relative; overflow: hidden;
-    }
-    .thumb-arabic {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-arabic); font-size: 3rem; color: rgba(255,255,255,0.12); pointer-events: none;
-    }
-    .thumb-icon { position: relative; z-index: 1; }
-    .ccf-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .ccf-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
-    .ccf-tag { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 20px; }
-    .tag-emerald { background: var(--emerald-pale); color: var(--emerald); }
-    .tag-gold    { background: #FEF3DC; color: #8B6914; }
-    .tag-blue    { background: #e3f2fd; color: #1565c0; }
-    .ccf-body h3 { font-size: 1.1rem; color: var(--emerald-dark); margin-bottom: 0.5rem; }
-    .ccf-body p  { font-size: 0.84rem; color: var(--text-muted); flex: 1; line-height: 1.7; }
-    .ccf-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1.2rem 0; }
-    .ccf-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); }
-    .ccf-actions { display: flex; gap: 0.6rem; margin-top: auto; }
-    .ccf-actions .btn { flex: 1; justify-content: center; font-size: 0.82rem; padding: 10px; }
-  </style>
-</head>
-<body>
-<script src="../js/components.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Courses — Suffah Official Islamic Academy</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/urdu.css" />
+    <link rel="icon" href="../assets/logo.png" type="image/png" />
+    <style>
+      .courses-search-bar {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 2rem;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        padding: 1.2rem 1.5rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--cream-dark);
+      }
+      .courses-search-input {
+        flex: 1;
+        min-width: 200px;
+        padding: 10px 16px 10px 40px;
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        background: var(--cream);
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .courses-search-input:focus {
+        border-color: var(--emerald);
+        background: var(--white);
+      }
+      .search-wrap {
+        position: relative;
+        flex: 1;
+        min-width: 200px;
+      }
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        pointer-events: none;
+      }
+      .filter-group {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 2px solid var(--emerald-pale);
+        color: var(--text-muted);
+        background: var(--white);
+        transition: all 0.2s;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--emerald);
+        border-color: var(--emerald);
+        color: var(--white);
+      }
+      .no-results {
+        text-align: center;
+        padding: 3rem;
+        color: var(--text-muted);
+        display: none;
+      }
+      .course-card-full {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--cream-dark);
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+      .course-card-full:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+      .course-card-thumb {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .thumb-arabic {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-arabic);
+        font-size: 3rem;
+        color: rgba(255, 255, 255, 0.12);
+        pointer-events: none;
+      }
+      .thumb-icon {
+        position: relative;
+        z-index: 1;
+      }
+      .ccf-body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .ccf-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.8rem;
+      }
+      .ccf-tag {
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 20px;
+      }
+      .tag-emerald {
+        background: var(--emerald-pale);
+        color: var(--emerald);
+      }
+      .tag-gold {
+        background: #fef3dc;
+        color: #8b6914;
+      }
+      .tag-blue {
+        background: #e3f2fd;
+        color: #1565c0;
+      }
+      .ccf-body h3 {
+        font-size: 1.1rem;
+        color: var(--emerald-dark);
+        margin-bottom: 0.5rem;
+      }
+      .ccf-body p {
+        font-size: 0.84rem;
+        color: var(--text-muted);
+        flex: 1;
+        line-height: 1.7;
+      }
+      .ccf-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin: 1.2rem 0;
+      }
+      .ccf-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+      .ccf-actions {
+        display: flex;
+        gap: 0.6rem;
+        margin-top: auto;
+      }
+      .ccf-actions .btn {
+        flex: 1;
+        justify-content: center;
+        font-size: 0.82rem;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="../js/components.js"></script>
 
-<div class="page-hero">
-  <span class="arabic-accent">اطْلُبُوا الْعِلْمَ وَلَوْ فِي الصِّينِ</span>
-  <h1 data-en="All Courses" data-ur="تمام کورسز">All Courses</h1>
-  <p data-en="Browse all Islamic programs — filter by topic or search by name" data-ur="تمام اسلامی پروگرام دیکھیں — موضوع کے مطابق فلٹر یا نام سے تلاش کریں">Browse all Islamic programs — filter by topic or search by name</p>
-</div>
+    <div class="page-hero">
+      <span class="arabic-accent">اطْلُبُوا الْعِلْمَ وَلَوْ فِي الصِّينِ</span>
+      <h1 data-en="All Courses" data-ur="تمام کورسز">All Courses</h1>
+      <p
+        data-en="Browse all Islamic programs — filter by topic or search by name"
+        data-ur="تمام اسلامی پروگرام دیکھیں — موضوع کے مطابق فلٹر یا نام سے تلاش کریں"
+      >
+        Browse all Islamic programs — filter by topic or search by name
+      </p>
+    </div>
 
-<section class="section bg-cream">
-  <div class="section-inner">
+    <section class="section bg-cream">
+      <div class="section-inner">
+        <div class="courses-search-bar">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input
+              type="text"
+              class="courses-search-input"
+              id="courseSearch"
+              placeholder="Search e.g. Tajweed, Hadith, Seerah…"
+              oninput="filterCourses()"
+            />
+          </div>
+          <div class="filter-group">
+            <button
+              class="filter-btn active"
+              data-filter="all"
+              onclick="setFilter(this)"
+            >
+              All
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="quran"
+              onclick="setFilter(this)"
+            >
+              📖 Quran
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="hadith"
+              onclick="setFilter(this)"
+            >
+              📜 Hadith
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="fiqh"
+              onclick="setFilter(this)"
+            >
+              ⚖️ Fiqh
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="seerah"
+              onclick="setFilter(this)"
+            >
+              🌟 Seerah
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="studies"
+              onclick="setFilter(this)"
+            >
+              ☪️ Studies
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="beginner"
+              onclick="setFilter(this)"
+            >
+              🌱 Beginner
+            </button>
+          </div>
+        </div>
 
-    <div class="courses-search-bar">
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="courses-search-input" id="courseSearch"
-          placeholder="Search e.g. Tajweed, Hadith, Seerah…" oninput="filterCourses()">
+        <div class="courses-grid" id="coursesGrid">
+          <div
+            class="course-card-full"
+            data-category="quran"
+            data-level="beginner"
+            data-name="nazrah quran tajweed recitation makhaarij"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #134d35, #2e8b5a)"
+            >
+              <div class="thumb-arabic">تَجْوِيد</div>
+              <span class="thumb-icon">📖</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">Quran</span
+                ><span class="ccf-tag tag-blue">Beginner – Advanced</span>
+              </div>
+              <h3>Nazrah Quran with Tajweed</h3>
+              <p>
+                Learn to recite the Holy Quran correctly with proper Makhaarij,
+                Sifat, and all major Tajweed rules. From complete beginner to
+                fluent reciter with applied Tajweed.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>3–6 Months</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>5 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>All Ages</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="courses-detail.html#nazrah" class="btn btn-outline"
+                  >Details</a
+                >
+                <a href="admission.html" class="btn btn-primary">Enroll →</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="course-card-full"
+            data-category="quran"
+            data-level="all"
+            data-name="hifz memorization quran huffaz sabaq manzil"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #8b6914, #c8972b)"
+            >
+              <div class="thumb-arabic">حِفْظ</div>
+              <span class="thumb-icon">🌙</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">Quran</span
+                ><span class="ccf-tag tag-gold">All Levels</span>
+              </div>
+              <h3>Hifz-ul-Quran — Memorization</h3>
+              <p>
+                One-on-one Quran memorization with experienced Huffaz. Daily
+                Sabaq, Sabqi, and Manzil with monthly progress reports. Hifz
+                completion ceremony and certificate upon finishing.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>2–4 Years</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>6 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>Age 7+</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="courses-detail.html#hifz" class="btn btn-outline"
+                  >Details</a
+                >
+                <a href="admission.html" class="btn btn-primary">Enroll →</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="course-card-full"
+            data-category="hadith"
+            data-level="intermediate"
+            data-name="hadith sunnah bukhari muslim arbaeen nawawi riyad salihin"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #0f5c6e, #1a8fa8)"
+            >
+              <div class="thumb-arabic">حَدِيث</div>
+              <span class="thumb-icon">📜</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">Hadith</span
+                ><span class="ccf-tag tag-blue">Intermediate</span>
+              </div>
+              <h3>Hadith Studies</h3>
+              <p>
+                Study authentic sayings of Prophet Muhammad ﷺ from Arba'een
+                An-Nawawi through Riyad as-Salihin to selected Hadith from Sahih
+                al-Bukhari and Sahih Muslim. Learn Hadith sciences.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>6–12 Months</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>3 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>Age 14+</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="hadith.html" class="btn btn-outline">Details</a>
+                <a href="admission.html" class="btn btn-primary">Enroll →</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="course-card-full"
+            data-category="fiqh"
+            data-level="intermediate"
+            data-name="fiqh jurisprudence salah wudu taharah zakah sawm hajj"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #4a2878, #7b4db5)"
+            >
+              <div class="thumb-arabic">فِقْه</div>
+              <span class="thumb-icon">⚖️</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">Fiqh</span
+                ><span class="ccf-tag tag-blue">Beginner – Intermediate</span>
+              </div>
+              <h3>Fiqh — Islamic Jurisprudence</h3>
+              <p>
+                Comprehensive Islamic law covering Taharah, Salah, Sawm, Zakah,
+                Hajj, and everyday rulings with evidence from Quran and Sunnah.
+                Know what is halal and haram in daily life.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>4–8 Months</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>3 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>Age 13+</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="courses-detail.html#fiqh" class="btn btn-outline"
+                  >Details</a
+                >
+                <a href="admission.html" class="btn btn-primary">Enroll →</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="course-card-full"
+            data-category="seerah"
+            data-level="beginner"
+            data-name="seerah prophet muhammad biography history hijrah makkah madinah"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #8b3a1e, #c0562c)"
+            >
+              <div class="thumb-arabic">سِيرَة</div>
+              <span class="thumb-icon">🌟</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">Seerah</span
+                ><span class="ccf-tag tag-gold">All Ages</span>
+              </div>
+              <h3>Seerah — Life of the Prophet ﷺ</h3>
+              <p>
+                A chronological journey through the blessed life of Prophet
+                Muhammad ﷺ — birth, prophethood, Hijrah, battles, and the
+                Farewell Pilgrimage. Deepen your love for the Prophet ﷺ.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>3–6 Months</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>2 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>Age 10+</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="seerah.html" class="btn btn-outline">Details</a>
+                <a href="admission.html" class="btn btn-primary">Enroll →</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="course-card-full"
+            data-category="studies"
+            data-level="beginner"
+            data-name="islamic studies aqeedah iman pillars kalimah akhlaq morals duas"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #1a2d5a, #2e4a8c)"
+            >
+              <div class="thumb-arabic">عَقِيدَة</div>
+              <span class="thumb-icon">☪️</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">Islamic Studies</span
+                ><span class="ccf-tag tag-gold">Beginner</span>
+              </div>
+              <h3>Islamic Studies — Aqeedah & Morals</h3>
+              <p>
+                Foundation course covering six pillars of Iman, five pillars of
+                Islam, essential du'as, Akhlaq (Islamic morals), family
+                etiquette, and fundamentals of Islamic belief for all ages.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>2–4 Months</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>3 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>Age 7+</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="islamic-studies.html" class="btn btn-outline"
+                  >Details</a
+                >
+                <a href="admission.html" class="btn btn-primary">Enroll →</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="course-card-full"
+            data-category="studies"
+            data-level="beginner"
+            data-name="arabic language grammar vocabulary quran understanding"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #2c5f2e, #4a9850)"
+            >
+              <div class="thumb-arabic">لُغَة</div>
+              <span class="thumb-icon">🔤</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">Arabic</span
+                ><span class="ccf-tag tag-blue">Beginner</span>
+              </div>
+              <h3>Quranic Arabic — Language Course</h3>
+              <p>
+                Learn the Arabic of the Quran to understand what you recite in
+                prayer. Covers essential vocabulary, basic Nahw and Sarf
+                (grammar), and reading comprehension of Quranic passages.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>4–6 Months</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>3 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>Age 12+</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="admission.html" class="btn btn-outline">Coming Soon</a>
+                <a href="admission.html" class="btn btn-primary"
+                  >Pre-Enroll →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="course-card-full"
+            data-category="studies"
+            data-level="beginner"
+            data-name="islamic history khulafa rashideen caliphate civilization golden age"
+          >
+            <div
+              class="course-card-thumb"
+              style="background: linear-gradient(135deg, #5d3a1a, #a0522d)"
+            >
+              <div class="thumb-arabic">تَارِيخ</div>
+              <span class="thumb-icon">🏛️</span>
+            </div>
+            <div class="ccf-body">
+              <div class="ccf-tags">
+                <span class="ccf-tag tag-emerald">History</span
+                ><span class="ccf-tag tag-gold">Beginner</span>
+              </div>
+              <h3>Islamic History & Civilization</h3>
+              <p>
+                Explore the golden age of Islam — the Rightly Guided Caliphs,
+                great Muslim scholars, the spread of Islam, and remarkable
+                Islamic contributions to science, philosophy, and the world.
+              </p>
+              <div class="ccf-meta">
+                <div class="ccf-meta-item">
+                  <span>⏱</span><span>3–5 Months</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🗓</span><span>2 Days/Week</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>🌍</span><span>Urdu & English</span>
+                </div>
+                <div class="ccf-meta-item">
+                  <span>👤</span><span>Age 12+</span>
+                </div>
+              </div>
+              <div class="ccf-actions">
+                <a href="admission.html" class="btn btn-outline">Coming Soon</a>
+                <a href="admission.html" class="btn btn-primary"
+                  >Pre-Enroll →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+          <div style="font-size: 3rem; margin-bottom: 1rem">🔍</div>
+          <h3 style="color: var(--emerald-dark); margin-bottom: 0.5rem">
+            No courses found
+          </h3>
+          <p>Try a different search term or select a different filter.</p>
+        </div>
       </div>
-      <div class="filter-group">
-        <button class="filter-btn active" data-filter="all"     onclick="setFilter(this)">All</button>
-        <button class="filter-btn"        data-filter="quran"   onclick="setFilter(this)">📖 Quran</button>
-        <button class="filter-btn"        data-filter="hadith"  onclick="setFilter(this)">📜 Hadith</button>
-        <button class="filter-btn"        data-filter="fiqh"    onclick="setFilter(this)">⚖️ Fiqh</button>
-        <button class="filter-btn"        data-filter="seerah"  onclick="setFilter(this)">🌟 Seerah</button>
-        <button class="filter-btn"        data-filter="studies" onclick="setFilter(this)">☪️ Studies</button>
-        <button class="filter-btn"        data-filter="beginner" onclick="setFilter(this)">🌱 Beginner</button>
+    </section>
+
+    <div class="cta-banner">
+      <span class="arabic-accent"
+        >وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا</span
+      >
+      <h2>Not sure which course to pick?</h2>
+      <p>
+        Contact our admissions team for a free consultation — we'll guide you to
+        the perfect program.
+      </p>
+      <div
+        style="
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+          position: relative;
+        "
+      >
+        <a href="admission.html" class="btn btn-gold">📝 Enroll Now</a>
+        <a
+          href="contact.html"
+          class="btn btn-outline"
+          style="color: white; border-color: rgba(255, 255, 255, 0.5)"
+          >📞 Contact Us</a
+        >
       </div>
     </div>
 
-    <div class="courses-grid" id="coursesGrid">
+    <script>
+      let activeFilter = "all";
+      function setFilter(btn) {
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeFilter = btn.dataset.filter;
+        filterCourses();
+      }
+      function filterCourses() {
+        const query = document
+          .getElementById("courseSearch")
+          .value.toLowerCase()
+          .trim();
+        const cards = document.querySelectorAll(".course-card-full");
+        let visible = 0;
+        cards.forEach((card) => {
+          const cat = card.dataset.category || "";
+          const level = card.dataset.level || "";
+          const name = card.dataset.name || "";
+          const matchFilter =
+            activeFilter === "all" ||
+            cat === activeFilter ||
+            (activeFilter === "beginner" && level.includes("beginner"));
+          const matchSearch =
+            !query ||
+            name.includes(query) ||
+            card
+              .querySelector("h3")
+              .textContent.toLowerCase()
+              .includes(query) ||
+            card.querySelector("p").textContent.toLowerCase().includes(query);
+          const show = matchFilter && matchSearch;
+          card.style.display = show ? "" : "none";
+          if (show) {
+            card.style.animation = "fadeUp 0.35s ease both";
+            visible++;
+          }
+        });
+        document.getElementById("noResults").style.display =
+          visible === 0 ? "block" : "none";
+      }
+    </script>
 
-      <div class="course-card-full" data-category="quran" data-level="beginner" data-name="nazrah quran tajweed recitation makhaarij">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#134D35,#2E8B5A);">
-          <div class="thumb-arabic">تَجْوِيد</div><span class="thumb-icon">📖</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">Quran</span><span class="ccf-tag tag-blue">Beginner – Advanced</span></div>
-          <h3>Nazrah Quran with Tajweed</h3>
-          <p>Learn to recite the Holy Quran correctly with proper Makhaarij, Sifat, and all major Tajweed rules. From complete beginner to fluent reciter with applied Tajweed.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>3–6 Months</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>5 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>All Ages</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="courses-detail.html#nazrah" class="btn btn-outline">Details</a>
-            <a href="admission.html" class="btn btn-primary">Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="course-card-full" data-category="quran" data-level="all" data-name="hifz memorization quran huffaz sabaq manzil">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#8B6914,#C8972B);">
-          <div class="thumb-arabic">حِفْظ</div><span class="thumb-icon">🌙</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">Quran</span><span class="ccf-tag tag-gold">All Levels</span></div>
-          <h3>Hifz-ul-Quran — Memorization</h3>
-          <p>One-on-one Quran memorization with experienced Huffaz. Daily Sabaq, Sabqi, and Manzil with monthly progress reports. Hifz completion ceremony and certificate upon finishing.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>2–4 Years</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>6 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>Age 7+</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="courses-detail.html#hifz" class="btn btn-outline">Details</a>
-            <a href="admission.html" class="btn btn-primary">Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="course-card-full" data-category="hadith" data-level="intermediate" data-name="hadith sunnah bukhari muslim arbaeen nawawi riyad salihin">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#0F5C6E,#1A8FA8);">
-          <div class="thumb-arabic">حَدِيث</div><span class="thumb-icon">📜</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">Hadith</span><span class="ccf-tag tag-blue">Intermediate</span></div>
-          <h3>Hadith Studies</h3>
-          <p>Study authentic sayings of Prophet Muhammad ﷺ from Arba'een An-Nawawi through Riyad as-Salihin to selected Hadith from Sahih al-Bukhari and Sahih Muslim. Learn Hadith sciences.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>6–12 Months</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>3 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>Age 14+</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="hadith.html" class="btn btn-outline">Details</a>
-            <a href="admission.html" class="btn btn-primary">Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="course-card-full" data-category="fiqh" data-level="intermediate" data-name="fiqh jurisprudence salah wudu taharah zakah sawm hajj">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#4A2878,#7B4DB5);">
-          <div class="thumb-arabic">فِقْه</div><span class="thumb-icon">⚖️</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">Fiqh</span><span class="ccf-tag tag-blue">Beginner – Intermediate</span></div>
-          <h3>Fiqh — Islamic Jurisprudence</h3>
-          <p>Comprehensive Islamic law covering Taharah, Salah, Sawm, Zakah, Hajj, and everyday rulings with evidence from Quran and Sunnah. Know what is halal and haram in daily life.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>4–8 Months</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>3 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>Age 13+</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="courses-detail.html#fiqh" class="btn btn-outline">Details</a>
-            <a href="admission.html" class="btn btn-primary">Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="course-card-full" data-category="seerah" data-level="beginner" data-name="seerah prophet muhammad biography history hijrah makkah madinah">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#8B3A1E,#C0562C);">
-          <div class="thumb-arabic">سِيرَة</div><span class="thumb-icon">🌟</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">Seerah</span><span class="ccf-tag tag-gold">All Ages</span></div>
-          <h3>Seerah — Life of the Prophet ﷺ</h3>
-          <p>A chronological journey through the blessed life of Prophet Muhammad ﷺ — birth, prophethood, Hijrah, battles, and the Farewell Pilgrimage. Deepen your love for the Prophet ﷺ.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>3–6 Months</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>2 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>Age 10+</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="seerah.html" class="btn btn-outline">Details</a>
-            <a href="admission.html" class="btn btn-primary">Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="course-card-full" data-category="studies" data-level="beginner" data-name="islamic studies aqeedah iman pillars kalimah akhlaq morals duas">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#1A2D5A,#2E4A8C);">
-          <div class="thumb-arabic">عَقِيدَة</div><span class="thumb-icon">☪️</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">Islamic Studies</span><span class="ccf-tag tag-gold">Beginner</span></div>
-          <h3>Islamic Studies — Aqeedah & Morals</h3>
-          <p>Foundation course covering six pillars of Iman, five pillars of Islam, essential du'as, Akhlaq (Islamic morals), family etiquette, and fundamentals of Islamic belief for all ages.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>2–4 Months</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>3 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>Age 7+</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="islamic-studies.html" class="btn btn-outline">Details</a>
-            <a href="admission.html" class="btn btn-primary">Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="course-card-full" data-category="studies" data-level="beginner" data-name="arabic language grammar vocabulary quran understanding">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#2C5F2E,#4A9850);">
-          <div class="thumb-arabic">لُغَة</div><span class="thumb-icon">🔤</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">Arabic</span><span class="ccf-tag tag-blue">Beginner</span></div>
-          <h3>Quranic Arabic — Language Course</h3>
-          <p>Learn the Arabic of the Quran to understand what you recite in prayer. Covers essential vocabulary, basic Nahw and Sarf (grammar), and reading comprehension of Quranic passages.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>4–6 Months</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>3 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>Age 12+</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="admission.html" class="btn btn-outline">Coming Soon</a>
-            <a href="admission.html" class="btn btn-primary">Pre-Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="course-card-full" data-category="studies" data-level="beginner" data-name="islamic history khulafa rashideen caliphate civilization golden age">
-        <div class="course-card-thumb" style="background:linear-gradient(135deg,#5D3A1A,#A0522D);">
-          <div class="thumb-arabic">تَارِيخ</div><span class="thumb-icon">🏛️</span>
-        </div>
-        <div class="ccf-body">
-          <div class="ccf-tags"><span class="ccf-tag tag-emerald">History</span><span class="ccf-tag tag-gold">Beginner</span></div>
-          <h3>Islamic History & Civilization</h3>
-          <p>Explore the golden age of Islam — the Rightly Guided Caliphs, great Muslim scholars, the spread of Islam, and remarkable Islamic contributions to science, philosophy, and the world.</p>
-          <div class="ccf-meta">
-            <div class="ccf-meta-item"><span>⏱</span><span>3–5 Months</span></div>
-            <div class="ccf-meta-item"><span>🗓</span><span>2 Days/Week</span></div>
-            <div class="ccf-meta-item"><span>🌍</span><span>Urdu & English</span></div>
-            <div class="ccf-meta-item"><span>👤</span><span>Age 12+</span></div>
-          </div>
-          <div class="ccf-actions">
-            <a href="admission.html" class="btn btn-outline">Coming Soon</a>
-            <a href="admission.html" class="btn btn-primary">Pre-Enroll →</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="no-results" id="noResults">
-      <div style="font-size:3rem;margin-bottom:1rem;">🔍</div>
-      <h3 style="color:var(--emerald-dark);margin-bottom:0.5rem;">No courses found</h3>
-      <p>Try a different search term or select a different filter.</p>
-    </div>
-
-  </div>
-</section>
-
-<div class="cta-banner">
-  <span class="arabic-accent">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا</span>
-  <h2>Not sure which course to pick?</h2>
-  <p>Contact our admissions team for a free consultation — we'll guide you to the perfect program.</p>
-  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;">
-    <a href="admission.html" class="btn btn-gold">📝 Enroll Now</a>
-    <a href="contact.html" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,0.5);">📞 Contact Us</a>
-  </div>
-</div>
-
-<script>
-  let activeFilter = 'all';
-  function setFilter(btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    filterCourses();
-  }
-  function filterCourses() {
-    const query = document.getElementById('courseSearch').value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.course-card-full');
-    let visible = 0;
-    cards.forEach(card => {
-      const cat   = card.dataset.category || '';
-      const level = card.dataset.level || '';
-      const name  = card.dataset.name || '';
-      const matchFilter = activeFilter === 'all' || cat === activeFilter || (activeFilter === 'beginner' && level.includes('beginner'));
-      const matchSearch = !query || name.includes(query) || card.querySelector('h3').textContent.toLowerCase().includes(query) || card.querySelector('p').textContent.toLowerCase().includes(query);
-      const show = matchFilter && matchSearch;
-      card.style.display = show ? '' : 'none';
-      if (show) { card.style.animation = 'fadeUp 0.35s ease both'; visible++; }
-    });
-    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-  }
-</script>
-
-<script src="../js/urdu.js"></script>
-<script src="../js/whatsapp.js"></script>
-<script src="../js/main.js"></script>
-</body>
+    <script src="../js/urdu.js"></script>
+    <script src="../js/whatsapp.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
 </html>
