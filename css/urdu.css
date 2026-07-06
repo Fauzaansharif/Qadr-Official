@@ -1,0 +1,225 @@
+/* ============================================================
+   SUFFAH OFFICIAL — Urdu Language Toggle Styles
+   RTL layout, Nastaliq font, direction overrides
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
+
+:root {
+  --font-urdu: 'Noto Nastaliq Urdu', 'Scheherazade New', serif;
+}
+
+/* ── Language Toggle Button ── */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--emerald);
+  background: transparent;
+  color: var(--emerald);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.lang-toggle-btn:hover,
+.lang-toggle-btn.urdu-active {
+  background: var(--emerald);
+  color: var(--white);
+}
+.lang-toggle-btn .lang-icon {
+  font-family: var(--font-urdu);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* ── Global Urdu Mode ── */
+body.urdu-mode {
+  font-family: var(--font-urdu);
+  direction: rtl;
+  text-align: right;
+}
+
+/* Elements that should remain LTR even in Urdu mode */
+body.urdu-mode input,
+body.urdu-mode select,
+body.urdu-mode textarea,
+body.urdu-mode .arabic-accent,
+body.urdu-mode code,
+body.urdu-mode .marks-table td:first-child,
+body.urdu-mode iframe {
+  direction: ltr;
+  text-align: left;
+  font-family: var(--font-body);
+}
+
+/* Navigation in Urdu mode */
+body.urdu-mode .navbar {
+  flex-direction: row-reverse;
+}
+body.urdu-mode .nav-links {
+  margin-left: 0;
+  margin-right: auto;
+}
+body.urdu-mode .nav-brand-text span {
+  font-family: var(--font-urdu);
+}
+
+/* Hero text in Urdu mode */
+body.urdu-mode .hero-text,
+body.urdu-mode .hero-eyebrow,
+body.urdu-mode .hero-title,
+body.urdu-mode .hero-desc {
+  font-family: var(--font-urdu);
+  text-align: right;
+}
+body.urdu-mode .hero-eyebrow::before {
+  display: none;
+}
+body.urdu-mode .hero-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background: var(--gold);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Section headers */
+body.urdu-mode .section-title,
+body.urdu-mode .section-sub,
+body.urdu-mode .section-label,
+body.urdu-mode h1, body.urdu-mode h2,
+body.urdu-mode h3, body.urdu-mode h4 {
+  font-family: var(--font-urdu);
+  line-height: 2;
+}
+
+/* Card content */
+body.urdu-mode .feature-card p,
+body.urdu-mode .course-body p,
+body.urdu-mode .teacher-card p,
+body.urdu-mode .hero-card p,
+body.urdu-mode .testimonial-card p,
+body.urdu-mode .contact-item-text p {
+  font-family: var(--font-urdu);
+  line-height: 2;
+}
+
+/* Timeline */
+body.urdu-mode .timeline {
+  padding-left: 0;
+  padding-right: 2.5rem;
+}
+body.urdu-mode .timeline::before {
+  left: auto;
+  right: 0.9rem;
+}
+body.urdu-mode .timeline-item::before {
+  left: auto;
+  right: -2.5rem;
+}
+
+/* Footer */
+body.urdu-mode .footer-grid {
+  direction: rtl;
+}
+body.urdu-mode .footer-brand p,
+body.urdu-mode .footer-col ul li a {
+  font-family: var(--font-urdu);
+  line-height: 2;
+}
+
+/* Page hero */
+body.urdu-mode .page-hero h1,
+body.urdu-mode .page-hero p {
+  font-family: var(--font-urdu);
+  line-height: 2;
+}
+
+/* Urdu text content — shown/hidden based on mode */
+[data-en] { display: inline; }
+[data-ur] { display: none; }
+
+body.urdu-mode [data-en] { display: none; }
+body.urdu-mode [data-ur] {
+  display: inline;
+  font-family: var(--font-urdu);
+  line-height: 2;
+}
+
+/* Block-level Urdu elements */
+body.urdu-mode [data-ur].block-ur {
+  display: block;
+}
+
+/* Nav links in Urdu */
+body.urdu-mode .nav-links a,
+body.urdu-mode .mobile-nav a {
+  font-family: var(--font-urdu);
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+body.urdu-mode .btn {
+  font-family: var(--font-urdu);
+  font-size: 1rem;
+}
+
+/* Urdu mode increases line-height globally for readability */
+body.urdu-mode p,
+body.urdu-mode li,
+body.urdu-mode td {
+  line-height: 2.2;
+}
+
+/* Form labels stay in Urdu if translated */
+body.urdu-mode .form-group label {
+  font-family: var(--font-urdu);
+  font-size: 1rem;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Portal tabs */
+body.urdu-mode .portal-tab {
+  font-family: var(--font-urdu);
+  font-size: 1rem;
+}
+
+/* Hadith cards — keep Arabic RTL, translation LTR */
+body.urdu-mode .hadith-translation {
+  font-family: var(--font-urdu);
+  text-align: right;
+  direction: rtl;
+}
+
+/* Notice band */
+body.urdu-mode .notice-band {
+  font-family: var(--font-urdu);
+  font-size: 1rem;
+  direction: rtl;
+}
+
+/* Syllabus list */
+body.urdu-mode .syllabus-list li {
+  font-family: var(--font-urdu);
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Hero stats */
+body.urdu-mode .hero-stat p {
+  font-family: var(--font-urdu);
+  font-size: 0.9rem;
+}
+
+/* Smooth transition for mode switch */
+body {
+  transition: font-family 0.1s;
+}
