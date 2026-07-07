@@ -259,7 +259,7 @@ h4 {
   flex-wrap: nowrap;
 }
 .nav-links a {
-  font-size: 1 rem;
+  font-size: 0.83rem;
   font-weight: 500;
   color: var(--text-mid);
   padding: 6px 11px;
@@ -286,7 +286,7 @@ h4 {
   margin-left: auto;
 }
 .hamburger span {
-  /* display: block; */
+  display: block;
   width: 24px;
   height: 2px;
   background: var(--emerald);
@@ -1121,26 +1121,26 @@ h4 {
   position: relative;
   overflow: hidden;
 }
-.page-hero::before {
+/* .page-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,2 58,17 58,43 30,58 2,43 2,17' fill='none' stroke='white' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
   background-size: 60px 60px;
-}
+} */
 .page-hero .arabic-accent {
   color: var(--gold-light);
 }
 .page-hero h1 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  position: relative;
+  font-size: 2 rem;
+  /* position: relative; */
 }
 .page-hero p {
   font-size: 1rem;
-  opacity: 0.85;
+  /* opacity: 0.85; */
   max-width: 540px;
   margin: 0.8rem auto 0;
-  position: relative;
+  /* position: relative; */
 }
 
 /* ============================================================
@@ -1165,8 +1165,6 @@ h4 {
   height: 50px;
   border-radius: 8px;
   margin-bottom: 1rem;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
 }
 .footer-brand h3 {
   font-family: var(--font-heading);
