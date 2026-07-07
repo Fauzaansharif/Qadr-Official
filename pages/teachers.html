@@ -3,21 +3,187 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teachers & About Us — Suffah Official</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>Teachers & About — Suffah Official</title>
     <link rel="stylesheet" href="../css/urdu.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/theme.css" />
     <link rel="icon" href="../assets/logo.png" type="image/png" />
+    <style>
+      /* ── Teacher card ── */
+      .teacher-card {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border);
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+      .teacher-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+      }
+      .teacher-card-top {
+        padding: 2rem 2rem 1.2rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+      .teacher-avatar {
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        background: var(--emerald-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        border: 3px solid var(--cream-dark);
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      .teacher-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .teacher-info h3 {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        color: var(--emerald-dark);
+        margin-bottom: 3px;
+      }
+      .teacher-role {
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+      }
+      .teacher-quals {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .qual-badge {
+        font-size: 0.7rem;
+        background: var(--emerald-pale);
+        color: var(--emerald);
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-weight: 600;
+      }
+      /* Placeholder badge style */
+      .qual-badge.placeholder {
+        background: var(--cream-dark);
+        color: var(--text-muted);
+        font-style: italic;
+      }
+      .teacher-card-body {
+        padding: 0 2rem 2rem;
+        flex: 1;
+      }
+      .teacher-bio {
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        line-height: 1.75;
+      }
+      /* Placeholder text style */
+      .placeholder-text {
+        font-size: 0.82rem;
+        color: var(--border);
+        font-style: italic;
+        background: var(--cream-dark);
+        border-radius: 6px;
+        padding: 0.6rem 0.9rem;
+        border-left: 3px dashed var(--border);
+        /* NOTE TO EDITOR: Replace this element's text with real content */
+      }
+      .teacher-courses {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--cream-dark);
+      }
+      .teacher-courses-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+      .teacher-course-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .tc-tag {
+        font-size: 0.74rem;
+        background: var(--cream-dark);
+        color: var(--text-mid);
+        padding: 3px 10px;
+        border-radius: 10px;
+      }
+      /* Add teacher placeholder card */
+      .teacher-card.add-card {
+        border: 2px dashed var(--border);
+        box-shadow: none;
+        background: var(--cream);
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2.5rem 2rem;
+        cursor: default;
+        min-height: 200px;
+      }
+      .add-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      .add-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--cream-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 auto 0.8rem;
+      }
+      .add-card h4 {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.3rem;
+      }
+      .add-card p {
+        font-size: 0.78rem;
+        color: var(--border);
+        font-style: italic;
+      }
+
+      /* Teachers grid */
+      .teachers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.8rem;
+      }
+    </style>
   </head>
   <body>
     <script src="../js/components.js"></script>
 
     <div class="page-hero">
       <span class="arabic-accent">الْعُلَمَاءُ وَرَثَةُ الْأَنْبِيَاءِ</span>
-      <h1>Our Teachers & About Us</h1>
+      <h1>Our Teachers</h1>
       <p>"Scholars are the inheritors of the Prophets." — Sunan Abu Dawud</p>
     </div>
 
-    <!-- ABOUT SECTION -->
+    <!-- ══════════════════════════════════════
+     ABOUT SECTION
+══════════════════════════════════════ -->
     <section class="section bg-white" id="about">
       <div class="section-inner">
         <div
@@ -26,35 +192,45 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            margin-bottom: 4rem;
           "
           class="course-detail-grid"
         >
           <div>
             <div class="section-header">
-              <span class="section-label">About Suffah Official</span>
-              <h2 class="section-title">Our Mission & Vision</h2>
+              <span class="section-label">About Us</span>
+              <h2 class="section-title">About Suffah Official</h2>
               <div class="divider-gold"></div>
             </div>
-            <p style="color: var(--text-muted); margin-bottom: 1rem">
-              Suffah Official was established with a single purpose: to make
-              authentic Islamic knowledge accessible to every Muslim, regardless
-              of their location. Named after the Ashab-us-Suffah — the
-              companions who dedicated themselves to knowledge at the Prophet's
-              ﷺ mosque — we carry that spirit into the digital age.
+
+            <p style="margin-bottom: 1rem">
+              Assalamualaikum warahmatullah wabarakatuh Suffah Official is a
+              global e-learning platform dedicated to teaching Nazrah Quran with
+              proper Tajweed and spreading Islamic knowledge. Along with Quranic
+              recitation, we offer courses on Hadees, Fiqh, Seerah, and other
+              essential Islamic studies.
+              <br />
+              <hr>
+              
+              <br>
+              Our mission is to make high-quality Islamic education accessible
+              to every Muslim, anywhere in the world. With experienced
+              instructors, interactive tools, and comprehensive courses, we aim
+              to help learners strengthen their connection with Allah and live
+              according to the teachings of Islam. Join us on this journey of
+              knowledge and spiritual growth.
             </p>
-            <p style="color: var(--text-muted); margin-bottom: 1rem">
-              We believe that Islamic education is an obligation, not a luxury.
-              Our team of qualified scholars, Huffaz, and teachers work
-              tirelessly to provide structured, verified, and spiritually
-              enriching programs for students of all ages and backgrounds.
-            </p>
-            <p style="color: var(--text-muted)">
-              Every course at Suffah Official is grounded in the Quran, Sunnah,
-              and the understanding of the pious predecessors (Salaf as-Salih).
-              We do not compromise on authenticity.
+            <br><hr><br>
+            <p id="teacher-p">
+              السلام علیکم ورحمة الله وبرکاته  
+               <br>أھلاً و سھلاً، مرحباً ہمارا مشن
+              معیاری اسلامی تعلیم کو دنیا کے ہر مسلمان کے لیے قابل رسائی بنانا
+              ہے۔ تجربہ کار اساتذہ، انٹرایکٹو ٹولز، اور جامع کورسز کے ذریعے ہم
+              طلباء کی اللہ سے تعلق کو مضبوط کرنے اور اسلام کی تعلیمات کے مطابق
+              زندگی گزارنے میں مدد فراہم کرتے ہیں۔ علم اور روحانی ترقی کے اس سفر
+              میں ہمارے ساتھ شامل ہوں
             </p>
           </div>
+
           <div
             style="
               background: linear-gradient(
@@ -70,7 +246,7 @@
           >
             <span
               class="arabic-accent"
-              style="color: #e8b84b; font-size: 2.2rem"
+              style="color: var(--gold-light); font-size: 2.2rem"
               >الصُّفَّة</span
             >
             <h3
@@ -83,11 +259,17 @@
               The People of the Bench
             </h3>
             <p style="opacity: 0.85; font-size: 0.88rem; line-height: 1.8">
-              The Ashab-us-Suffah were poor companions who lived in the
-              Prophet's mosque, dedicating their lives to seeking knowledge.
-              Their dedication to learning Quran and Sunnah is our inspiration
-              and namesake.
+              The Ashab-us-Suffah were companions who dedicated their lives to
+              learning at the Prophet's ﷺ mosque. Their devotion to knowledge is
+              our inspiration and namesake.
             </p>
+            <!--
+          ════════════════════════════════════════
+          TO UPDATE — Stats block:
+          Replace the numbers below with your
+          real student/teacher/course counts.
+          ════════════════════════════════════════
+        -->
             <div
               style="
                 margin-top: 2rem;
@@ -103,7 +285,7 @@
                   padding: 1rem;
                 "
               >
-                <div style="font-size: 1.8rem; font-weight: 700">500+</div>
+                <div style="font-size: 1.8rem; font-weight: 700">200+</div>
                 <div style="font-size: 0.8rem; opacity: 0.75">Students</div>
               </div>
               <div
@@ -113,8 +295,8 @@
                   padding: 1rem;
                 "
               >
-                <div style="font-size: 1.8rem; font-weight: 700">12+</div>
-                <div style="font-size: 0.8rem; opacity: 0.75">Scholars</div>
+                <div style="font-size: 1.8rem; font-weight: 700">3</div>
+                <div style="font-size: 0.8rem; opacity: 0.75">Teachers</div>
               </div>
               <div
                 style="
@@ -139,52 +321,12 @@
             </div>
           </div>
         </div>
-
-        <!-- Values -->
-        <div class="section-header center">
-          <span class="section-label">Our Values</span>
-          <h2 class="section-title">Principles That Guide Us</h2>
-          <div class="divider-gold"></div>
-        </div>
-        <div class="features-grid" style="margin-bottom: 4rem">
-          <div class="feature-card reveal">
-            <div class="feature-icon">✅</div>
-            <h3>Authenticity</h3>
-            <p>
-              All content is based on Quran, authentic Sunnah, and classical
-              Islamic scholarship. No innovation or fabricated narrations.
-            </p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-icon">🤍</div>
-            <h3>Sincerity</h3>
-            <p>
-              Our teachers and staff work for the sake of Allah alone, seeking
-              no worldly fame or recognition — only His pleasure.
-            </p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-icon">🌍</div>
-            <h3>Accessibility</h3>
-            <p>
-              Islamic knowledge should reach every Muslim home. We strive to
-              make quality education affordable and available online globally.
-            </p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-icon">🌱</div>
-            <h3>Growth</h3>
-            <p>
-              We are committed to continuous improvement — better curriculum,
-              better teachers, better technology — for a better learning
-              experience.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- TEACHERS SECTION -->
+    <!-- ══════════════════════════════════════
+     TEACHERS SECTION
+══════════════════════════════════════ -->
     <section
       class="section geo-bg"
       style="background: var(--cream)"
@@ -193,103 +335,114 @@
       <div class="section-inner">
         <div class="section-header center">
           <span class="section-label">Meet the Team</span>
-          <h2 class="section-title">Our Qualified Teachers</h2>
+          <h2 class="section-title">Our Teachers</h2>
           <div class="divider-gold"></div>
           <p class="section-sub">
-            All our teachers are verified scholars with formal Islamic
-            education, years of teaching experience, and deep love for sharing
-            knowledge.
+           Dedicated Islamic Educators With over 5 years of dedicated teaching experience, our Suffah educators specialize in providing comprehensive Islamic instructions. They are highly proficient in guiding students through Nazrah and Hifz-ul-Quran, while fostering a deep understanding of Hadith, Seerah, and foundational Islamic Studies. They are committed to nurturing both the spiritual growth and academic excellence of their students.
           </p>
         </div>
 
         <div class="teachers-grid">
+          <!-- ═══════════════════════════════════
+           TEACHER 1 — Ustad Samiullah Chaugule
+           ═══════════════════════════════════ -->
           <div class="teacher-card reveal">
-            <div class="teacher-avatar">👨‍🎓</div>
-            <h3>Hafiz Abdul Rahman</h3>
-            <div class="role">Head of Quran Department</div>
-            <p>
-              Alim and Hafiz of Quran with 15 years of teaching experience.
-              Specializes in Tajweed and Hifz programs for all ages.
-            </p>
-            <span class="teacher-badge">Sanad in Tajweed</span>
+            <div class="teacher-card-top">
+              <div class="teacher-avatar">
+           
+              <img src="/suffah//assets/tj.jpeg" alt="">
+              </div>
+              <div class="teacher-info">
+                <h3>Ustad Samiullah Chaugule</h3>
+                <div class="teacher-role">
+                   "Quran & Tajweed Teacher"
+                </div>
+                <div class="teacher-quals">
+               
+                  <span class="qual-badge placeholder">Hafiz-ul-Quran</span>
+                  <span class="qual-badge placeholder">Hifz and Tajweed Teacher for 6+ year</span>
+                </div>
+              </div>
+            </div>
+            <div class="teacher-card-body">
+              <!--
+            TO UPDATE — Bio:
+            Replace the placeholder below with a real bio paragraph.
+            E.g.: "Ustad Samiullah has over X years of teaching experience…"
+          -->
+              <p class="placeholder-text">
+                [ Ustad Samiullah's bio here — teaching experience,
+                background, specialisation, etc.]
+              </p>
+              <div class="teacher-courses">
+                <div class="teacher-courses-label">Teaches</div>
+                <div class="teacher-course-tags">
+                  <!--
+                TO UPDATE: Replace with the courses this teacher actually teaches.
+              -->
+                  <span class="tc-tag">Nazrah Quran with Tajweed</span>
+                  <span class="tc-tag">Hifz-ul-Quran</span>
+                </div>
+              </div>
+            </div>
           </div>
 
+          <!-- ═══════════════════════════════════
+           TEACHER 2 — Abdul Hannan
+           ═══════════════════════════════════ -->
           <div class="teacher-card reveal">
-            <div class="teacher-avatar">👩‍🎓</div>
-            <h3>Ustadha Mariam Siddiqui</h3>
-            <div class="role">Quran & Islamic Studies</div>
-            <p>
-              Female scholar specializing in Quran recitation, Islamic Studies
-              for women and children. Certified Qari'a with ijazah.
-            </p>
-            <span class="teacher-badge">Certified Qari'a</span>
+            <div class="teacher-card-top">
+              <div class="teacher-avatar">
+                <!--
+              TO UPDATE — Teacher photo:
+              <img src="../assets/abdulhannan.jpg" alt="Abdul Hannan">
+            -->
+                👨‍🎓
+              </div>
+              <div class="teacher-info">
+                <h3>Abdul Hannan Sheliya</h3>
+                <div class="teacher-role">
+                  "Hadith & Islamic Studies Teacher"
+                </div>
+                <div class="teacher-quals">
+                  <!--
+                TO UPDATE — Qualifications:
+                <span class="qual-badge">Alim wa Fadil</span>
+                <span class="qual-badge">Darul Uloom Graduate</span>
+              -->
+                  <span class="qual-badge placeholder">Hafiz-ul-Quran</span>
+                  <span class="qual-badge placeholder">Hadith and  Seerah teacher for 5+ year</span>
+                </div>
+              </div>
+            </div>
+            <div class="teacher-card-body">
+              <!--
+            TO UPDATE — Bio:
+            Replace with Abdul Hannan's real bio.
+          -->
+              <p class="placeholder-text">
+                [Add Abdul Hannan's bio here — teaching experience, background,
+                specialisation, etc.]
+              </p>
+              <div class="teacher-courses">
+                <div class="teacher-courses-label">Teaches</div>
+                <div class="teacher-course-tags">
+                  <span class="tc-tag">Hadith Studies</span>
+                  <span class="tc-tag">Seerah — Life of the Prophet ﷺ</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="teacher-card reveal">
-            <div class="teacher-avatar">👨‍🎓</div>
-            <h3>Sheikh Idrees Khan</h3>
-            <div class="role">Hadith & Fiqh Scholar</div>
-            <p>
-              Graduate of Darul Uloom with specialization in Hadith sciences.
-              Teaches Fiqh, Hadith, and advanced Islamic jurisprudence.
-            </p>
-            <span class="teacher-badge">Alim wa Fadil</span>
-          </div>
-
-          <div class="teacher-card reveal">
-            <div class="teacher-avatar">👩‍🎓</div>
-            <h3>Ustadha Fatima Noor</h3>
-            <div class="role">Seerah & Islamic History</div>
-            <p>
-              Author and educator with a passion for Seerah. Has delivered
-              Seerah courses to thousands of students across South Asia and
-              Europe.
-            </p>
-            <span class="teacher-badge">Seerah Specialist</span>
-          </div>
-
-          <div class="teacher-card reveal">
-            <div class="teacher-avatar">👨‍🎓</div>
-            <h3>Qari Bilal Ahmed</h3>
-            <div class="role">Hifz & Tajweed Teacher</div>
-            <p>
-              Memorized the Quran at age 12. Has helped over 200 students
-              complete their Hifz through personalized, structured programs.
-            </p>
-            <span class="teacher-badge">Hafiz-e-Quran</span>
-          </div>
-
-          <div class="teacher-card reveal">
-            <div class="teacher-avatar">👩‍🎓</div>
-            <h3>Ustadha Zainab Hassan</h3>
-            <div class="role">Children's Islamic Studies</div>
-            <p>
-              Specialist in Islamic education for children. Uses engaging,
-              age-appropriate methods to teach Aqeedah, du'as, and Akhlaq.
-            </p>
-            <span class="teacher-badge">Child Education Expert</span>
-          </div>
-
-          <div class="teacher-card reveal">
-            <div class="teacher-avatar">👨‍🎓</div>
-            <h3>Maulana Yusuf Siddiq</h3>
-            <div class="role">Fiqh & Arabic Language</div>
-            <p>
-              Teaches Fiqh ul-Ibadat (jurisprudence of worship) and classical
-              Arabic. Studied at Al-Azhar University, Egypt.
-            </p>
-            <span class="teacher-badge">Al-Azhar Graduate</span>
-          </div>
-
-          <div class="teacher-card reveal">
-            <div class="teacher-avatar">👩‍🎓</div>
-            <h3>Ustadha Ruqayyah Ali</h3>
-            <div class="role">Women's Fiqh Specialist</div>
-            <p>
-              Provides dedicated courses for Muslim women covering Fiqh issues
-              related to purification, prayer, and family life.
-            </p>
-            <span class="teacher-badge">Women's Fiqh Expert</span>
+          <!-- ═══════════════════════════════════
+           ADD MORE TEACHERS HERE
+           Duplicate the block above for each
+           new teacher and fill in the details.
+           ═══════════════════════════════════ -->
+          <div class="teacher-card add-card">
+            <!-- <div class="add-icon">➕</div> -->
+            <h4>More Teachers Coming Soon</h4>
+            <!-- <p>Duplicate a teacher card above to add new faculty members.</p> -->
           </div>
         </div>
       </div>
@@ -299,7 +452,7 @@
       <span class="arabic-accent"
         >خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</span
       >
-      <h2>Learn from the Best — Enroll at Suffah Official</h2>
+      <h2>Learn from Dedicated Teachers</h2>
       <p>
         "The best among you are those who learn the Quran and teach it." — Sahih
         al-Bukhari

@@ -1,0 +1,349 @@
+/* ============================================================
+   SUFFAH OFFICIAL — Theme Override: Forest Green & Gold
+   Replaces the emerald/cream palette across the entire site.
+   ============================================================ */
+
+:root {
+  /* ── Primary: Forest Green ── */
+  --emerald: #1a5c35;
+  --emerald-dark: #0f3d22;
+  --emerald-light: #27733f;
+  --emerald-pale: #d6ead8;
+
+  /* ── Accent: Warm Gold ── */
+  --gold: #b8860b;
+  --gold-light: #d4a017;
+
+  /* ── Background: Warm Off-White ── */
+  --cream: #fafaf5;
+  --cream-dark: #eef0e8;
+
+  /* ── Text ── */
+  --text-dark: #151a14;
+  --text-mid: #333b30;
+  --text-muted: #6b7268;
+
+  --white: #ffffff;
+  --border: #d2d8c8;
+
+  /* ── Shadows (green-tinted) ── */
+  --shadow-sm: 0 2px 8px rgba(15, 61, 34, 0.1);
+  --shadow-md: 0 6px 24px rgba(15, 61, 34, 0.14);
+  --shadow-lg: 0 16px 48px rgba(15, 61, 34, 0.18);
+
+  /* ── Radii ── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* ── Fonts ── */
+  --font-heading: "Amiri", serif;
+  --font-body: "Poppins", sans-serif;
+  --font-arabic: "Scheherazade New", serif;
+
+  /* ── Nav height ── */
+  --nav-h: 72px;
+}
+
+/* ── Body background shifts to warm off-white ── */
+body {
+  background: var(--cream);
+}
+
+/* ── Scrollbar to forest green ── */
+::-webkit-scrollbar-thumb {
+  background: var(--emerald);
+}
+
+/* ── Hero gradient ── */
+.hero {
+  background: linear-gradient(
+    150deg,
+    var(--cream) 0%,
+    var(--cream-dark) 50%,
+    var(--emerald-pale) 100%
+  );
+}
+
+/* ── Hero title accent ── */
+.hero-title em {
+  color: var(--gold);
+}
+
+/* ── Page hero ── */
+/* .page-hero {
+  background: linear-gradient(
+    135deg,
+    var(--emerald-dark) 0%,
+    var(--emerald) 100%
+  );
+} */
+
+/* ── CTA Banner ── */
+.cta-banner {
+  background: linear-gradient(
+    135deg,
+    var(--emerald-dark) 0%,
+    var(--emerald) 60%,
+    var(--emerald-light) 100%
+  );
+}
+
+/* ── Testimonials section ── */
+.testimonials-section {
+  background: var(--emerald-dark);
+}
+
+/* ── Divider ── */
+.divider-gold {
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+
+/* ── Course thumbnail gradients ── */
+.course-thumb.emerald {
+  background: linear-gradient(
+    135deg,
+    var(--emerald-dark),
+    var(--emerald-light)
+  );
+}
+
+/* ── Notice band ── */
+.notice-band {
+  background: var(--emerald-dark);
+}
+
+/* ── Overall portal card ── */
+.overall-progress-card {
+  background: linear-gradient(
+    135deg,
+    var(--emerald-dark),
+    var(--emerald-light)
+  );
+}
+
+/* ── Portal tab active ── */
+.ptab.active {
+  background: var(--emerald);
+}
+.portal-tab.active {
+  background: var(--emerald);
+  border-color: var(--emerald);
+}
+
+/* ── Marks table header ── */
+.marks-table th {
+  background: var(--emerald);
+}
+
+/* ── Progress bar ── */
+.prog-bar-fill {
+  background: linear-gradient(90deg, var(--emerald-dark), var(--emerald-light));
+}
+.score-fill {
+  background: linear-gradient(90deg, var(--emerald), var(--emerald-light));
+}
+
+/* ── WhatsApp FAB (keep green, just tone down) ── */
+.wa-fab {
+  box-shadow: 0 6px 24px rgba(15, 61, 34, 0.4);
+}
+
+/* ── Dropdown menu ── */
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-dropdown > .nav-drop-btn {
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  padding: 6px 11px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.nav-dropdown > .nav-drop-btn:hover,
+.nav-dropdown > .nav-drop-btn.active {
+  color: var(--emerald);
+  background: var(--emerald-pale);
+}
+.nav-drop-arrow {
+  font-size: 0.6rem;
+  opacity: 0.6;
+  transition: transform 0.2s;
+}
+.nav-dropdown:hover .nav-drop-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-drop-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  min-width: 200px;
+  padding: 0.4rem;
+  z-index: 2000;
+}
+.nav-dropdown:hover .nav-drop-menu {
+  display: block;
+}
+.nav-drop-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  transition: all 0.15s;
+}
+.nav-drop-menu a:hover {
+  background: var(--emerald-pale);
+  color: var(--emerald);
+}
+
+/* ── YouTube section ── */
+.yt-channel-card {
+  background: linear-gradient(135deg, #034718 0%, #8d6417 100%);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.yt-channel-card::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 0, 0, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.yt-channel-logo {
+  width: 80px;
+  height: 80px;
+  background: #ff0000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.yt-channel-info h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+.yt-channel-info p {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 1rem;
+}
+.yt-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ff0000;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 24px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.yt-subscribe-btn:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+}
+
+.yt-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.yt-video-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.yt-video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.yt-video-card iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  display: block;
+}
+/* Placeholder for video ID not yet added */
+.yt-video-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  gap: 0.5rem;
+}
+.yt-video-placeholder .play-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 0, 0, 0.7);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+.yt-video-body {
+  padding: 1rem 1.2rem;
+}
+.yt-video-body h4 {
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.yt-video-body p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .yt-channel-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.8rem;
+  }
+}

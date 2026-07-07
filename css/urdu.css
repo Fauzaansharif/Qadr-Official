@@ -3,10 +3,10 @@
    RTL layout, Nastaliq font, direction overrides
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap");
 
 :root {
-  --font-urdu: 'Noto Nastaliq Urdu', 'Scheherazade New', serif;
+  --font-urdu: "Noto Nastaliq Urdu", "Scheherazade New", serif;
 }
 
 /* ── Language Toggle Button ── */
@@ -81,7 +81,7 @@ body.urdu-mode .hero-eyebrow::before {
   display: none;
 }
 body.urdu-mode .hero-eyebrow::after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 30px;
   height: 2px;
@@ -94,8 +94,10 @@ body.urdu-mode .hero-eyebrow::after {
 body.urdu-mode .section-title,
 body.urdu-mode .section-sub,
 body.urdu-mode .section-label,
-body.urdu-mode h1, body.urdu-mode h2,
-body.urdu-mode h3, body.urdu-mode h4 {
+body.urdu-mode h1,
+body.urdu-mode h2,
+body.urdu-mode h3,
+body.urdu-mode h4 {
   font-family: var(--font-urdu);
   line-height: 2;
 }
@@ -111,6 +113,13 @@ body.urdu-mode .contact-item-text p {
   line-height: 2;
 }
 
+#teacher-p {
+  line-height: 40px;
+  font-family: "Noto Nastaliq Urdu", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
 /* Timeline */
 body.urdu-mode .timeline {
   padding-left: 0;
@@ -143,10 +152,16 @@ body.urdu-mode .page-hero p {
 }
 
 /* Urdu text content — shown/hidden based on mode */
-[data-en] { display: inline; }
-[data-ur] { display: none; }
+[data-en] {
+  display: inline;
+}
+[data-ur] {
+  display: none;
+}
 
-body.urdu-mode [data-en] { display: none; }
+body.urdu-mode [data-en] {
+  display: none;
+}
 body.urdu-mode [data-ur] {
   display: inline;
   font-family: var(--font-urdu);
