@@ -107,7 +107,7 @@
         <img src="${p("assets/logo.png")}" alt="Suffah Official Logo"
              onerror="this.style.display='none'">
         <div class="nav-brand-text">
-          <span>Suffah Official</span>
+          <span>Qadr Academy</span>
           <span>E-Learning Academy</span>
         </div>
       </a>
@@ -135,7 +135,7 @@
         <div class="footer-brand">
           <img src="${p("/suffah/assets/logo.png")}" alt="Suffah Logo"
                onerror="this.style.display='none'">
-          <h3>Suffah Official</h3>
+          <h3>Qadr Academy</h3>
           <span class="footer-arabic">الصُّفَّة الرَّسْمِيَّة</span>
           <p>
             <!-- TO UPDATE: Replace this description with your academy's mission -->
@@ -173,9 +173,9 @@
           <h4>Connect With Us</h4>
           <ul>
             <!-- TO UPDATE: Replace with your actual contact details -->
-            <li><a href="mailto:suffahofficial@gmail.com">📧 suffahofficial@gmail.com</a></li>
+            <li><a href="mailto:Qadracademy123@gmail.com">📧 Qadracademy123@gmail.com</a></li>
             <li><a href="tel:+917666774850">📞 +91 76667 74850</a></li>
-            <li><a href="https://www.youtube.com/@suffahofficial" target="_blank">▶ YouTube — Suffah Official</a></li>
+            <li><a href="https://www.youtube.com/@suffahofficial" target="_blank">▶ YouTube — Qadr Academy</a></li>
             <li><a href="https://whatsapp.com/channel/0029Va9pQeP2kNFswJG9WW2a" target="_blank">💬 WhatsApp Channel</a></li>
             <li><a href="#">📍 Powai, Mumbai, India</a></li>
           </ul>
@@ -183,7 +183,7 @@
 
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Suffah Official E-Learning Academy. All rights reserved.</span>
+        <span>© 2026 Qadr Academy E-Learning Academy. All rights reserved.</span>
         <span style="font-family:'Scheherazade New',serif;font-size:1rem;color:rgba(255,255,255,0.3);">
           وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ
         </span>
