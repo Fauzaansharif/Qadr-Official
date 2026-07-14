@@ -1,5 +1,5 @@
 // ============================================================
-// SUFFAH OFFICIAL — WhatsApp Channel Widget
+// QADR OFFICIAL — WhatsApp Channel Widget
 //
 // TO UPDATE:
 //   WA_CHANNEL_URL — your WhatsApp channel link
@@ -11,7 +11,7 @@
   // ── Configuration ──────────────────────────────────────────
   const WA_CHANNEL_URL =
     "https://whatsapp.com/channel/0029Va9pQeP2kNFswJG9WW2a";
-  const WA_LABEL = "Follow Suffah Official on WhatsApp";
+  const WA_LABEL = "Follow Qadr Official on WhatsApp";
   const WA_SUB_LABEL = "Join our channel for Islamic reminders & updates";
   const AUTO_SHOW_MS = 8000; // auto-open after 8 seconds
   // ──────────────────────────────────────────────────────────
@@ -149,7 +149,7 @@
         <div class="wa-bubble-header">
           <div class="wa-avatar">🕌</div>
           <div>
-            <span class="wa-info-name">Suffah Official</span>
+            <span class="wa-info-name">Qadr Official</span>
             <span class="wa-info-status"><span class="wa-dot"></span>WhatsApp Channel</span>
           </div>
         </div>

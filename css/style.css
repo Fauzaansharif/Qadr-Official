@@ -1154,7 +1154,7 @@ h4 {
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 3rem;
@@ -1193,6 +1193,7 @@ h4 {
 }
 .footer-col ul li {
   margin-bottom: 0.6rem;
+  /* width: fit-content; */
 }
 .footer-col ul li a {
   font-size: 0.83rem;
@@ -1282,7 +1283,7 @@ h4 {
   }
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   .footer-bottom {
     flex-direction: column;

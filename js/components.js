@@ -1,5 +1,5 @@
 // ============================================================
-// SUFFAH OFFICIAL — Shared Components
+// QADR ACADEMY — Shared Components
 // Injects: notice band, navbar (with dropdown), footer
 //
 // HOW TO UPDATE NAV LINKS:
@@ -72,7 +72,7 @@
     // TO UPDATE: change the text between the backticks below
     const band = document.createElement("div");
     band.className = "notice-band";
-    band.innerHTML = `📚 New Batch Starting Soon — <a href="${p("pages/admission.html")}">Apply Now</a> | 🌙 Admissions Open for 2025-26`;
+    band.innerHTML = `📚 New Batch Starting Soon — <a href="${p("pages/admission.html")}">Apply Now</a> | 🌙 Admissions Open for 2026-27`;
     document.body.prepend(band);
 
     // ── 2. NAVBAR ──
@@ -104,7 +104,7 @@
 
     navbar.innerHTML = `
       <a href="${p("index.html")}" class="nav-brand">
-        <img src="${p("assets/logo.png")}" alt="Suffah Official Logo"
+        <img src="${p("/assets/logo.png")}" alt="Qadr Academy Logo"
              onerror="this.style.display='none'">
         <div class="nav-brand-text">
           <span>Qadr Academy</span>
@@ -133,7 +133,7 @@
       <div class="footer-grid">
 
         <div class="footer-brand">
-          <img src="${p("/suffah/assets/logo.png")}" alt="Suffah Logo"
+          <img src="${p("/assets/logo.png")}" alt="Qadr Academy Logo"
                onerror="this.style.display='none'">
           <h3>Qadr Academy</h3>
           <span class="footer-arabic">الصُّفَّة الرَّسْمِيَّة</span>
@@ -173,11 +173,11 @@
           <h4>Connect With Us</h4>
           <ul>
             <!-- TO UPDATE: Replace with your actual contact details -->
-            <li><a href="mailto:Qadracademy123@gmail.com">📧 Qadracademy123@gmail.com</a></li>
+            <li><a href="mailto:Qadracademy123@gmail.com"><i class="fa-solid fa-envelope" style="color: rgb(196, 7, 7);"></i> Qadracademy123@gmail.com</a></li>
             <li><a href="tel:+917666774850">📞 +91 76667 74850</a></li>
-            <li><a href="https://www.youtube.com/@suffahofficial" target="_blank">▶ YouTube — Qadr Academy</a></li>
-            <li><a href="https://whatsapp.com/channel/0029Va9pQeP2kNFswJG9WW2a" target="_blank">💬 WhatsApp Channel</a></li>
-            <li><a href="#">📍 Powai, Mumbai, India</a></li>
+            <li><a href="https://www.youtube.com/@suffahofficial" target="_blank"><i class="fa-brands fa-youtube" style="color: rgb(196, 7, 7);"></i> YouTube — Qadr Academy</a></li>
+            <li><a href="https://whatsapp.com/channel/0029Va9pQeP2kNFswJG9WW2a" target="_blank"> <i class="fa-brands fa-whatsapp" style="color: rgb(18, 161, 117);"></i> WhatsApp Channel</a></li>
+            <li><a href="#"><i class="fa-solid fa-location-pin" style="color: rgb(196, 7, 7);"></i> Powai, Mumbai, India</a></li>
           </ul>
         </div>
 
