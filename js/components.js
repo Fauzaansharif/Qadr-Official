@@ -104,7 +104,7 @@
 
     navbar.innerHTML = `
       <a href="${p("index.html")}" class="nav-brand">
-        <img src="${p("/assets/logo.png")}" alt="Qadr Academy Logo"
+        <img src="${p("assets/logo.png")}" alt="Qadr Academy Logo"
              onerror="this.style.display='none'">
         <div class="nav-brand-text">
           <span>Qadr Academy</span>
@@ -133,7 +133,7 @@
       <div class="footer-grid">
 
         <div class="footer-brand">
-          <img src="${p("/assets/logo.png")}" alt="Qadr Academy Logo"
+          <img src="${p("assets/logo.png")}" alt="Qadr Academy Logo"
                onerror="this.style.display='none'">
           <h3>Qadr Academy</h3>
           <span class="footer-arabic">الصُّفَّة الرَّسْمِيَّة</span>

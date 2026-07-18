@@ -1553,3 +1553,644 @@ h4 {
   color: var(--gold);
   font-weight: 600;
 }
+
+/* ============================================================
+   QADR ACADEMY — Responsive Styles
+   Breakpoints: 1200px | 1024px | 768px | 480px | 360px
+   Covers: navbar, hero, cards, courses, teachers, portal,
+           quiz, forms, footer, WhatsApp widget, YouTube grid
+   ============================================================ */
+
+/* ── 1200px: Large tablet / small desktop ── */
+@media (max-width: 1200px) {
+  .section-inner {
+    max-width: 96vw;
+  }
+  .hero-content {
+    gap: 2.5rem;
+  }
+  .hero-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ── 1024px: Tablet landscape ── */
+@media (max-width: 1024px) {
+  /* Navbar: tighten spacing */
+  .nav-links a {
+    font-size: 0.78rem;
+    padding: 5px 8px;
+  }
+  .nav-drop-btn {
+    font-size: 0.78rem;
+    padding: 5px 8px;
+  }
+  .nav-cta {
+    font-size: 0.78rem !important;
+    padding: 8px 14px !important;
+  }
+
+  /* Hero */
+  .hero-content {
+    gap: 2rem;
+  }
+  .hero-visual {
+    gap: 0.9rem;
+  }
+  .hero-card {
+    padding: 1.1rem 1.2rem;
+  }
+
+  /* Two-column grids collapse */
+  .course-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* Portal */
+  .portal-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+  .overall-progress-card {
+    gap: 1.5rem;
+  }
+}
+
+/* ── 768px: Tablet portrait / large mobile ── */
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 64px;
+  }
+
+  /* ── Navbar ── */
+  .nav-links,
+  .nav-cta {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex !important;
+  }
+
+  /* ── Notice band ── */
+  .notice-band {
+    font-size: 0.76rem;
+    padding: 8px 4vw;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: calc(var(--nav-h) + 2rem) 5vw 3rem;
+    min-height: auto;
+  }
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .hero-visual {
+    display: none;
+  }
+  .hero-title {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+  }
+  .hero-bismillah {
+    font-size: 1.5rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+  }
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+  .hero-btns {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .hero-btns .btn {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  .hero-stats {
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .hero-stat h3 {
+    font-size: 1.4rem;
+  }
+  .hero-stat p {
+    font-size: 0.72rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding: 2.8rem 5vw;
+  }
+  .section-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+  .section-sub {
+    font-size: 0.88rem;
+  }
+
+  /* ── Features grid — 2 cols ── */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .feature-card {
+    padding: 1.3rem 1rem;
+  }
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+  .feature-card h3 {
+    font-size: 0.95rem;
+  }
+  .feature-card p {
+    font-size: 0.8rem;
+  }
+
+  /* ── Courses grid — 1 col ── */
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  /* ── YouTube ── */
+  .yt-videos-grid,
+  .yt-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .yt-channel-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  .yt-channel-logo {
+    margin: 0 auto;
+  }
+
+  /* ── Testimonials ── */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* ── Teachers grid ── */
+  .teachers-grid {
+    grid-template-columns: 1fr;
+  }
+  .teacher-card-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .teacher-quals,
+  .teacher-course-tags {
+    justify-content: center;
+  }
+
+  /* ── Forms ── */
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  .form-section {
+    padding: 1.5rem 1.2rem;
+  }
+  .form-submit .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Contact page ── */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Page hero ── */
+  .page-hero {
+    padding: calc(var(--nav-h) + 2rem) 5vw 2rem;
+  }
+  .page-hero h1 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+  .page-hero p {
+    font-size: 0.88rem;
+  }
+  .page-hero .arabic-accent {
+    font-size: 1.4rem;
+  }
+
+  /* ── CTA banner ── */
+  .cta-banner {
+    padding: 3rem 5vw;
+  }
+  .cta-banner h2 {
+    font-size: clamp(1.3rem, 5vw, 2rem);
+  }
+  .cta-banner p {
+    font-size: 0.88rem;
+  }
+
+  /* ── Footer ── */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .footer-brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* ── Student portal ── */
+  .portal-login-card {
+    padding: 2rem 1.5rem;
+  }
+  .portal-dashboard {
+    padding: calc(var(--nav-h) + 2rem) 4vw 3rem;
+  }
+  .portal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .portal-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .portal-stat-card {
+    padding: 1rem;
+    gap: 0.7rem;
+  }
+  .portal-tab-bar {
+    gap: 0.3rem;
+    padding: 0.4rem;
+  }
+  .ptab {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+  .att-calendar-grid {
+    gap: 5px;
+  }
+  .att-summary {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+  .marks-table-scroll {
+    overflow-x: auto;
+  }
+  .marks-table {
+    min-width: 520px;
+  }
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+  .overall-progress-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .op-stats {
+    justify-content: center;
+  }
+
+  /* ── Quiz ── */
+  .quiz-topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .quiz-card {
+    padding: 1.5rem;
+  }
+  .quiz-question {
+    font-size: 1.05rem;
+  }
+  .tf-options {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .results-card {
+    padding: 2rem 1.2rem;
+  }
+
+  /* ── Admission 3-step sidebar ── */
+  .contact-grid > div:first-child {
+    order: 2;
+  }
+  .contact-grid > div:last-child {
+    order: 1;
+  }
+
+  /* ── Course detail ── */
+  .course-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ccf-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+  .courses-search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+  .filter-group {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* ── Seerah timeline ── */
+  .timeline {
+    padding-left: 2rem;
+  }
+  .timeline-item::before {
+    left: -2rem;
+  }
+
+  /* ── Hadith cards ── */
+  .hadith-arabic {
+    font-size: 1.3rem;
+  }
+
+  /* ── About / teachers page 2-col ── */
+  .course-detail-grid.about-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── 480px: Small mobile ── */
+@media (max-width: 480px) {
+  :root {
+    --nav-h: 60px;
+  }
+
+  /* ── Navbar ── */
+  .nav-brand-text span:last-child {
+    display: none;
+  }
+  .nav-brand img {
+    width: 34px;
+    height: 34px;
+  }
+  .nav-brand-text span:first-child {
+    font-size: 1rem;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: calc(var(--nav-h) + 1.5rem) 4vw 2.5rem;
+  }
+  .hero-bismillah {
+    font-size: 1.2rem;
+  }
+  .hero-title {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+  }
+  .hero-desc {
+    font-size: 0.86rem;
+  }
+  .hero-stats {
+    gap: 0.7rem;
+  }
+  .hero-stat h3 {
+    font-size: 1.2rem;
+  }
+  .hero-stat p {
+    font-size: 0.68rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding: 2.2rem 4vw;
+  }
+  .section-label {
+    font-size: 0.66rem;
+  }
+
+  /* ── Features — 1 col on small phones ── */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  /* ── Quiz — 1 col ── */
+  .quiz-topic-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .quiz-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* ── Portal stats — tighter ── */
+  .portal-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .portal-stat-card {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  .portal-stat-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .portal-stat-text h3 {
+    font-size: 1.1rem;
+  }
+  .portal-stat-text p {
+    font-size: 0.68rem;
+  }
+  .ptab {
+    font-size: 0.72rem;
+    padding: 6px 9px;
+  }
+
+  /* ── Attendance calendar ── */
+  .att-weekday {
+    font-size: 0.6rem;
+    padding: 2px 0;
+  }
+  .att-cell {
+    font-size: 0.68rem;
+    border-radius: 5px;
+  }
+  .att-calendar-grid {
+    gap: 4px;
+  }
+  .att-legend {
+    gap: 1rem;
+  }
+  .att-legend-item {
+    font-size: 0.72rem;
+  }
+
+  /* ── Marks table ── */
+  .marks-table {
+    font-size: 0.78rem;
+  }
+  .marks-table th,
+  .marks-table td {
+    padding: 8px 10px;
+  }
+
+  /* ── Progress ring ── */
+  .progress-ring-wrap {
+    width: 90px;
+    height: 90px;
+  }
+  .ring-label .ring-pct {
+    font-size: 1.2rem;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 2.2rem 4vw 1.5rem;
+  }
+  .footer-col h4 {
+    font-size: 0.82rem;
+  }
+  .footer-col ul li a {
+    font-size: 0.78rem;
+  }
+  .social-links {
+    gap: 0.6rem;
+  }
+  .social-link {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  /* ── CTA banner ── */
+  .cta-banner {
+    padding: 2.5rem 4vw;
+  }
+
+  /* ── Page hero ── */
+  .page-hero {
+    padding: calc(var(--nav-h) + 1.5rem) 4vw 1.8rem;
+  }
+  .page-hero h1 {
+    font-size: clamp(1.3rem, 7vw, 1.8rem);
+  }
+  .page-hero .arabic-accent {
+    font-size: 1.1rem;
+  }
+
+  /* ── Form ── */
+  .form-section {
+    padding: 1.2rem 1rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.88rem;
+    padding: 9px 12px;
+  }
+
+  /* ── Course cards full ── */
+  .ccf-meta {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .ccf-actions {
+    flex-direction: column;
+  }
+  .ccf-actions .btn {
+    font-size: 0.85rem;
+  }
+
+  /* ── Teachers ── */
+  .teacher-avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 1.8rem;
+  }
+
+  /* ── WhatsApp widget ── */
+  .wa-widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .wa-bubble {
+    max-width: 220px;
+    padding: 0.9rem 1rem;
+  }
+  .wa-fab {
+    width: 48px;
+    height: 48px;
+  }
+  .wa-fab svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ── Testimonial cards ── */
+  .testimonial-card {
+    padding: 1.3rem;
+  }
+}
+
+/* ── 360px: Very small phones ── */
+@media (max-width: 360px) {
+  .portal-stats {
+    grid-template-columns: 1fr;
+  }
+  .att-calendar-grid {
+    gap: 3px;
+  }
+  .att-cell {
+    font-size: 0.6rem;
+    border-radius: 4px;
+  }
+  .quiz-question {
+    font-size: 0.92rem;
+  }
+  .section-title {
+    font-size: 1.25rem;
+  }
+  .hero-btns .btn {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav-brand-text span:first-child {
+    font-size: 0.9rem;
+  }
+}
