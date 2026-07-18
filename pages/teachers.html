@@ -55,7 +55,7 @@
         margin-bottom: 3px;
       }
       .teacher-role {
-        font-size: 0.76rem;
+        font-size: 0.7rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -75,7 +75,6 @@
         border-radius: 12px;
         font-weight: 600;
       }
-      /* Placeholder badge style */
       .qual-badge.placeholder {
         background: var(--cream-dark);
         color: var(--text-muted);
@@ -90,16 +89,13 @@
         color: var(--text-muted);
         line-height: 1.75;
       }
-      /* Placeholder text style */
-      .placeholder-text {
-        font-size: 0.82rem;
-        color: var(--border);
+      .text {
+        font-size: 0.9rem;
+        color: var(--text-dark);
         font-style: italic;
         background: var(--cream-dark);
         border-radius: 6px;
         padding: 0.6rem 0.9rem;
-        border-left: 3px dashed var(--border);
-        /* NOTE TO EDITOR: Replace this element's text with real content */
       }
       .teacher-courses {
         margin-top: 1rem;
@@ -121,12 +117,11 @@
       }
       .tc-tag {
         font-size: 0.74rem;
-        background: var(--cream-dark);
-        color: var(--text-mid);
+        background: var(--emerald-pale);
+        color: var(--gold);
         padding: 3px 10px;
         border-radius: 10px;
       }
-      /* Add teacher placeholder card */
       .teacher-card.add-card {
         border: 2px dashed var(--border);
         box-shadow: none;
@@ -356,29 +351,27 @@
               <div class="teacher-info">
                 <h3>Ustad Samiullah Chaugule</h3>
                 <div class="teacher-role">
-                   "Quran & Tajweed Teacher"
+                   "Tajweed, Seerah & Quran Teacher"
                 </div>
                 <div class="teacher-quals">
                
-                  <span class="qual-badge placeholder">Hafiz-ul-Quran</span>
-                  <span class="qual-badge placeholder">Hifz and Tajweed Teacher for 6+ year</span>
+                  <span class="qual-badge ">Hafiz-ul-Quran</span>
+                  <span class="qual-badge ">Hifz, Tajweed and Seerah Teacher for 6+ year</span>
                 </div>
               </div>
             </div>
             <div class="teacher-card-body">
         
-              <p class="placeholder-text">
-                [ Ustad Samiullah's bio here — teaching experience,
-                background, specialisation, etc.]
+              <p class="text">
+                Ustad Samiullah Chaugule is a dedicated Hafiz-ul-Quran with over six years of experience specializing in Hifz, Tajweed, and Seerah. As a passionate educator, he focuses on connecting students with the foundational teachings of the Quran and the rich legacy of the Prophet Muhammad (ﷺ). By bringing Islamic History and Civilization to life, he ensures students develop both technical recitation skills and a profound spiritual understanding.
               </p>
               <div class="teacher-courses">
                 <div class="teacher-courses-label">Teaches</div>
                 <div class="teacher-course-tags">
-                  <!--
-                TO UPDATE: Replace with the courses this teacher actually teaches.
-              -->
+               
                   <span class="tc-tag">Nazrah Quran with Tajweed</span>
-                  <span class="tc-tag">Hifz-ul-Quran</span>
+                  <span class="tc-tag">Seerah — Life of the Prophet ﷺ</span>
+                  <span class="tc-tag">Islamic History & Civilization</span>
                 </div>
               </div>
             </div>
@@ -390,52 +383,38 @@
           <div class="teacher-card reveal">
             <div class="teacher-card-top">
               <div class="teacher-avatar">
-                <!--
-              TO UPDATE — Teacher photo:
-              <img src="../assets/abdulhannan.jpg" alt="Abdul Hannan">
-            -->
+           
                 👨‍🎓
               </div>
               <div class="teacher-info">
                 <h3>Abdul Hannan Sheliya</h3>
                 <div class="teacher-role">
-                  "Hadith & Islamic Studies Teacher"
+                  "Hadith, Fiqh & Islamic Studies Teacher"
                 </div>
                 <div class="teacher-quals">
-                  <!--
-                TO UPDATE — Qualifications:
-                <span class="qual-badge">Alim wa Fadil</span>
-                <span class="qual-badge">Darul Uloom Graduate</span>
-              -->
-                  <span class="qual-badge placeholder">Hafiz-ul-Quran</span>
-                  <span class="qual-badge placeholder">Hadith and  Seerah teacher for 5+ year</span>
+               
+                  <span class="qual-badge ">Hafiz-ul-Quran</span>
+                  <span class="qual-badge ">Hadith, Fiqh and Seerah teacher for 5+ year</span>
                 </div>
               </div>
             </div>
             <div class="teacher-card-body">
-              <!--
-            TO UPDATE — Bio:
-            Replace with Abdul Hannan's real bio.
-          -->
-              <p class="placeholder-text">
-                [Add Abdul Hannan's bio here — teaching experience, background,
-                specialisation, etc.]
+              
+              <p class="text">
+                Abdul Hannan Sheliya is a distinguished Hafiz-ul-Quran with over five years of experience instructing students in Hadith, Fiqh, and Seerah. Deeply committed to foundational Islamic education, he specializes in guiding students through the prophetic traditions and core theological principles. His teaching emphasizes practical moral development and Aqeedah, equipping students with a strong, well-rounded understanding of Islamic Studies.
               </p>
               <div class="teacher-courses">
                 <div class="teacher-courses-label">Teaches</div>
                 <div class="teacher-course-tags">
                   <span class="tc-tag">Hadith Studies</span>
-                  <span class="tc-tag">Seerah — Life of the Prophet ﷺ</span>
+                  <span class="tc-tag">Islamic Studies — Aqeedah & Morals</span>
+                  <span class="tc-tag">Hadith Studies</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- ═══════════════════════════════════
-           ADD MORE TEACHERS HERE
-           Duplicate the block above for each
-           new teacher and fill in the details.
-           ═══════════════════════════════════ -->
+      
           <div class="teacher-card add-card">
             <!-- <div class="add-icon">➕</div> -->
             <h4>More Teachers Coming Soon</h4>
@@ -446,10 +425,10 @@
     </section>
 
     <div class="cta-banner">
+      <h2>Learn from Dedicated Teachers</h2>
       <span class="arabic-accent"
         >خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</span
       >
-      <h2>Learn from Dedicated Teachers</h2>
       <p>
         "The best among you are those who learn the Quran and teach it." — Sahih
         al-Bukhari
